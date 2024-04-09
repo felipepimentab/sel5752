@@ -1,7 +1,10 @@
-|mux2
-d0 => y.DATAB
-d1 => y.DATAA
-s => y.OUTPUTSELECT
-y <= y.DB_MAX_OUTPUT_PORT_TYPE
+|mux3
+d0 => Mux0.IN0
+d1 => Mux0.IN1
+d2 => Mux0.IN2
+d2 => Mux0.IN3
+s[0] => Mux0.IN5
+s[1] => Mux0.IN4
+y <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
 
 

@@ -16,7 +16,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "s",
+					"name" : "s[0]",
+					"strict" : false
+				},
+				{
+					"name" : "s[1]",
+					"strict" : false
+				},
+				{
+					"name" : "d2",
 					"strict" : false
 				}
 			]
