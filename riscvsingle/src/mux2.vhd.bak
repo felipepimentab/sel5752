@@ -1,0 +1,11 @@
+ENTITY mux2 IS
+  PORT (d0, d1,	:  IN  BIT;  -- entradas 
+        s,			:  IN  BIT;  -- selecao
+        y         :  OUT BIT); -- saida
+END mux2;
+
+ARCHITECTURE behaviour OF mux_0 IS
+BEGIN
+	y <= d0 WHEN s = 0 ELSE
+		  d1 WHEN s = 1
+END behaviour;
