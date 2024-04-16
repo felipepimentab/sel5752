@@ -7,9 +7,9 @@
 
 entity mux2 is
 	port (
-		d0, d1 : in bit_vector(31 downto 0);
+		d0, d1 : in bit;
 		s		 : in bit;
-		y		 : out bit_vector(31 downto 0)
+		y		 : out bit
 	);
 end mux2;
 
