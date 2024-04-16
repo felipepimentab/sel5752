@@ -5,3 +5,6 @@ file . "mux3.vhd" "db610af899bf026f0605fd646f3cd57922184015" "20240409202636.429
 file . "mux2.vhd" "dd7179f84ec731b5512ae785f93926de5090cd59" "20240409202615.160":
   entity mux2 at 8( 164) + 0 on 11;
   architecture behavior of mux2 at 16( 253) + 0 on 12;
+file . "flopr.vhd" "edbe37259f9fced1d588284697cbe3d5b90dc16d" "20240416200028.449":
+  entity flopr at 8( 164) + 0 on 17;
+  architecture behaviour of flopr at 16( 319) + 0 on 18;
