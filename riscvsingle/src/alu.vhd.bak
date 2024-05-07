@@ -1,0 +1,49 @@
+entity alu is
+generic(
+	N : natural := 32
+);
+port(
+	A, B		  : in  bit_vector(N-1 downto 0);
+	ALUControl : in  bit_vector(2 downto 0);
+	Result	  : out bit_vector(N-1 downto 0);
+	Zero		  : out bit
+);
+end alu;
+
+architecture behaviour of alu is
+
+function "+" (x, y : bit_vector) return bit_vector is
+	variable v : bit := '0';
+	variable s : bit_vector(x'length-1 downto 0);
+begin
+	for i in 0 to x'length-1 loop
+		s(i) := x(i) xor y(i) xor v;
+		v    := (x(i) and y(i)) or (v and (x(i) or y(i));
+	end loop;
+	return s;
+end "+";
+
+function "-" (x, y : bit_vector) return bit_vector is
+	variable r : bit_vector(x'length-1 downto 0);
+	variable b : bit := 0;
+begin
+	for i in 0 to x'length-1 loop
+		if b then
+			r(i) := not a(i) xor b(i);
+			b := (a(i) and b(i)) or (not a(i) and b);
+		else
+			r(i) := a(i) xor b(i);
+			b := not a(i) and b(i);
+		end if;
+	end loop;
+	return r;
+end "-";
+
+begin
+	process(ALUControl, A, B)
+	begin
+		case ALUControl is
+			when "000" =>
+				
+			when "001" =>
+				

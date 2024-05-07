@@ -1,5 +1,5 @@
 Analysis & Synthesis report for riscvsingle
-Tue Apr 16 17:06:51 2024
+Tue May 07 17:59:41 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -14,9 +14,11 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Post-Synthesis Netlist Statistics for Top Partition
- 10. Elapsed Time Per Partition
- 11. Analysis & Synthesis Messages
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Parameter Settings for User Entity Instance: Top-level Entity: |alu
+ 11. Post-Synthesis Netlist Statistics for Top Partition
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
 
 
 
@@ -43,16 +45,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Apr 16 17:06:51 2024       ;
+; Analysis & Synthesis Status        ; Successful - Tue May 07 17:59:41 2024       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; riscvsingle                                 ;
-; Top-level Entity Name              ; flopr                                       ;
+; Top-level Entity Name              ; alu                                         ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 32                                          ;
-;     Total combinational functions  ; 0                                           ;
-;     Dedicated logic registers      ; 32                                          ;
-; Total registers                    ; 32                                          ;
-; Total pins                         ; 66                                          ;
+; Total logic elements               ; 229                                         ;
+;     Total combinational functions  ; 229                                         ;
+;     Dedicated logic registers      ; 0                                           ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 100                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -68,7 +70,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; 10M50DAF484C7G     ;                    ;
-; Top-level entity name                                            ; flopr              ; riscvsingle        ;
+; Top-level entity name                                            ; alu                ; riscvsingle        ;
 ; Family name                                                      ; MAX 10             ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -164,45 +166,45 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                            ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                     ; Library ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------------+---------+
-; ../src/flopr.vhd                 ; yes             ; User VHDL File  ; C:/Users/sel/Documents/riscvsingle/src/flopr.vhd ;         ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                          ;
++----------------------------------+-----------------+-----------------+------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                   ; Library ;
++----------------------------------+-----------------+-----------------+------------------------------------------------+---------+
+; ../src/alu.vhd                   ; yes             ; User VHDL File  ; C:/Users/sel/Documents/riscvsingle/src/alu.vhd ;         ;
++----------------------------------+-----------------+-----------------+------------------------------------------------+---------+
 
 
-+---------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary             ;
-+---------------------------------------------+-----------+
-; Resource                                    ; Usage     ;
-+---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 32        ;
-;                                             ;           ;
-; Total combinational functions               ; 0         ;
-; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 0         ;
-;     -- 3 input functions                    ; 0         ;
-;     -- <=2 input functions                  ; 0         ;
-;                                             ;           ;
-; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 0         ;
-;     -- arithmetic mode                      ; 0         ;
-;                                             ;           ;
-; Total registers                             ; 32        ;
-;     -- Dedicated logic registers            ; 32        ;
-;     -- I/O registers                        ; 0         ;
-;                                             ;           ;
-; I/O pins                                    ; 66        ;
-;                                             ;           ;
-; Embedded Multiplier 9-bit elements          ; 0         ;
-;                                             ;           ;
-; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 32        ;
-; Total fan-out                               ; 194       ;
-; Average fan-out                             ; 1.18      ;
-+---------------------------------------------+-----------+
++-------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                       ;
++---------------------------------------------+---------------------+
+; Resource                                    ; Usage               ;
++---------------------------------------------+---------------------+
+; Estimated Total logic elements              ; 229                 ;
+;                                             ;                     ;
+; Total combinational functions               ; 229                 ;
+; Logic element usage by number of LUT inputs ;                     ;
+;     -- 4 input functions                    ; 85                  ;
+;     -- 3 input functions                    ; 129                 ;
+;     -- <=2 input functions                  ; 15                  ;
+;                                             ;                     ;
+; Logic elements by mode                      ;                     ;
+;     -- normal mode                          ; 198                 ;
+;     -- arithmetic mode                      ; 31                  ;
+;                                             ;                     ;
+; Total registers                             ; 0                   ;
+;     -- Dedicated logic registers            ; 0                   ;
+;     -- I/O registers                        ; 0                   ;
+;                                             ;                     ;
+; I/O pins                                    ; 100                 ;
+;                                             ;                     ;
+; Embedded Multiplier 9-bit elements          ; 0                   ;
+;                                             ;                     ;
+; Maximum fan-out node                        ; ALUControl[1]~input ;
+; Maximum fan-out                             ; 65                  ;
+; Total fan-out                               ; 890                 ;
+; Average fan-out                             ; 2.07                ;
++---------------------------------------------+---------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -210,7 +212,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; |flopr                     ; 0 (0)               ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 66   ; 0            ; 0          ; |flopr              ; flopr       ; work         ;
+; |alu                       ; 229 (229)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 100  ; 0            ; 0          ; |alu                ; alu         ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -220,28 +222,52 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 32    ;
+; Total registers                              ; 0     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 32    ;
+; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 5:1                ; 31 bits   ; 93 LEs        ; 93 LEs               ; 0 LEs                  ; No         ; |alu|Mux30                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |alu ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; N              ; 32    ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
-+-------------------+---------------------------------+
-; Type              ; Count                           ;
-+-------------------+---------------------------------+
-; boundary_port     ; 66                              ;
-; cycloneiii_ff     ; 32                              ;
-;     CLR           ; 32                              ;
-;                   ;                                 ;
-; Max LUT depth     ; 0.00                            ;
-; Average LUT depth ; 0.00                            ;
-+-------------------+---------------------------------+
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 100                         ;
+; cycloneiii_lcell_comb ; 229                         ;
+;     arith             ; 31                          ;
+;         3 data inputs ; 31                          ;
+;     normal            ; 198                         ;
+;         2 data inputs ; 15                          ;
+;         3 data inputs ; 98                          ;
+;         4 data inputs ; 85                          ;
+;                       ;                             ;
+; Max LUT depth         ; 35.00                       ;
+; Average LUT depth     ; 23.12                       ;
++-----------------------+-----------------------------+
 
 
 +-------------------------------+
@@ -249,7 +275,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -259,7 +285,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Tue Apr 16 17:06:41 2024
+    Info: Processing started: Tue May 07 17:59:30 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off riscvsingle -c riscvsingle
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -272,18 +298,28 @@ Info (12021): Found 2 design units, including 1 entities, in source file /users/
 Info (12021): Found 2 design units, including 1 entities, in source file /users/sel/documents/riscvsingle/src/flopr.vhd
     Info (12022): Found design unit 1: flopr-behaviour File: C:/Users/sel/Documents/riscvsingle/src/flopr.vhd Line: 16
     Info (12023): Found entity 1: flopr File: C:/Users/sel/Documents/riscvsingle/src/flopr.vhd Line: 8
-Info (12127): Elaborating entity "flopr" for the top level hierarchy
+Info (12021): Found 2 design units, including 1 entities, in source file /users/sel/documents/riscvsingle/src/adder.vhd
+    Info (12022): Found design unit 1: adder-behaviour File: C:/Users/sel/Documents/riscvsingle/src/adder.vhd Line: 20
+    Info (12023): Found entity 1: adder File: C:/Users/sel/Documents/riscvsingle/src/adder.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file /users/sel/documents/riscvsingle/src/som_1a.vhd
+    Info (12022): Found design unit 1: som_1a-soma File: C:/Users/sel/Documents/riscvsingle/src/som_1a.vhd Line: 6
+    Info (12023): Found entity 1: som_1a File: C:/Users/sel/Documents/riscvsingle/src/som_1a.vhd Line: 1
+Info (12021): Found 2 design units, including 1 entities, in source file /users/sel/documents/riscvsingle/src/alu.vhd
+    Info (12022): Found design unit 1: alu-behaviour File: C:/Users/sel/Documents/riscvsingle/src/alu.vhd Line: 13
+    Info (12023): Found entity 1: alu File: C:/Users/sel/Documents/riscvsingle/src/alu.vhd Line: 1
+Info (12127): Elaborating entity "alu" for the top level hierarchy
+Warning (10492): VHDL Process Statement warning at alu.vhd(66): signal "Result" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/sel/Documents/riscvsingle/src/alu.vhd Line: 66
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 98 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 34 input pins
-    Info (21059): Implemented 32 output pins
-    Info (21061): Implemented 32 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4783 megabytes
-    Info: Processing ended: Tue Apr 16 17:06:51 2024
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:21
+Info (21057): Implemented 329 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 67 input pins
+    Info (21059): Implemented 33 output pins
+    Info (21061): Implemented 229 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 4782 megabytes
+    Info: Processing ended: Tue May 07 17:59:41 2024
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:22
 
 
