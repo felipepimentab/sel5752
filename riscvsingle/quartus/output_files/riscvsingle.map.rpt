@@ -1,5 +1,5 @@
-Analysis & Synthesis report for riscvsingle
-Tue May 07 17:59:41 2024
+Analysis & Elaboration report for riscvsingle
+Tue May 14 16:53:16 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -7,18 +7,11 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Synthesis Summary
-  3. Analysis & Synthesis Settings
-  4. Parallel Compilation
-  5. Analysis & Synthesis Source Files Read
-  6. Analysis & Synthesis Resource Usage Summary
-  7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Multiplexer Restructuring Statistics (Restructuring Performed)
- 10. Parameter Settings for User Entity Instance: Top-level Entity: |alu
- 11. Post-Synthesis Netlist Statistics for Top Partition
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
+  2. Analysis & Elaboration Summary
+  3. Parallel Compilation
+  4. Parameter Settings for User Entity Instance: Top-level Entity: |alu
+  5. Analysis & Elaboration Settings
+  6. Analysis & Elaboration Messages
 
 
 
@@ -43,29 +36,55 @@ https://fpgasoftware.intel.com/eula.
 
 
 +----------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                     ;
+; Analysis & Elaboration Summary                                                   ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue May 07 17:59:41 2024       ;
+; Analysis & Elaboration Status      ; Successful - Tue May 14 16:53:16 2024       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; riscvsingle                                 ;
 ; Top-level Entity Name              ; alu                                         ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 229                                         ;
-;     Total combinational functions  ; 229                                         ;
-;     Dedicated logic registers      ; 0                                           ;
-; Total registers                    ; 0                                           ;
-; Total pins                         ; 100                                         ;
-; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 0                                           ;
-; Embedded Multiplier 9-bit elements ; 0                                           ;
-; Total PLLs                         ; 0                                           ;
-; UFM blocks                         ; 0                                           ;
-; ADC blocks                         ; 0                                           ;
+; Total logic elements               ; N/A until Partition Merge                   ;
+;     Total combinational functions  ; N/A until Partition Merge                   ;
+;     Dedicated logic registers      ; N/A until Partition Merge                   ;
+; Total registers                    ; N/A until Partition Merge                   ;
+; Total pins                         ; N/A until Partition Merge                   ;
+; Total virtual pins                 ; N/A until Partition Merge                   ;
+; Total memory bits                  ; N/A until Partition Merge                   ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
+; Total PLLs                         ; N/A until Partition Merge                   ;
+; UFM blocks                         ; N/A until Partition Merge                   ;
+; ADC blocks                         ; N/A until Partition Merge                   ;
 +------------------------------------+---------------------------------------------+
 
 
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |alu ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; Width          ; 32    ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Settings                                                                              ;
+; Analysis & Elaboration Settings                                                                            ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
@@ -150,153 +169,24 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------------+--------------------+--------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 4           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-+----------------------------+-------------+
-
-
-+---------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                          ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                   ; Library ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------+---------+
-; ../src/alu.vhd                   ; yes             ; User VHDL File  ; C:/Users/sel/Documents/riscvsingle/src/alu.vhd ;         ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------+---------+
-
-
-+-------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                       ;
-+---------------------------------------------+---------------------+
-; Resource                                    ; Usage               ;
-+---------------------------------------------+---------------------+
-; Estimated Total logic elements              ; 229                 ;
-;                                             ;                     ;
-; Total combinational functions               ; 229                 ;
-; Logic element usage by number of LUT inputs ;                     ;
-;     -- 4 input functions                    ; 85                  ;
-;     -- 3 input functions                    ; 129                 ;
-;     -- <=2 input functions                  ; 15                  ;
-;                                             ;                     ;
-; Logic elements by mode                      ;                     ;
-;     -- normal mode                          ; 198                 ;
-;     -- arithmetic mode                      ; 31                  ;
-;                                             ;                     ;
-; Total registers                             ; 0                   ;
-;     -- Dedicated logic registers            ; 0                   ;
-;     -- I/O registers                        ; 0                   ;
-;                                             ;                     ;
-; I/O pins                                    ; 100                 ;
-;                                             ;                     ;
-; Embedded Multiplier 9-bit elements          ; 0                   ;
-;                                             ;                     ;
-; Maximum fan-out node                        ; ALUControl[1]~input ;
-; Maximum fan-out                             ; 65                  ;
-; Total fan-out                               ; 890                 ;
-; Average fan-out                             ; 2.07                ;
-+---------------------------------------------+---------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; |alu                       ; 229 (229)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 100  ; 0            ; 0          ; |alu                ; alu         ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+------------------------------------------------------+
-; General Register Statistics                          ;
-+----------------------------------------------+-------+
-; Statistic                                    ; Value ;
-+----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
-; Number of registers using Preset             ; 0     ;
-+----------------------------------------------+-------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 5:1                ; 31 bits   ; 93 LEs        ; 93 LEs               ; 0 LEs                  ; No         ; |alu|Mux30                 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-
-
-+---------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Top-level Entity: |alu ;
-+----------------+-------+--------------------------------------------+
-; Parameter Name ; Value ; Type                                       ;
-+----------------+-------+--------------------------------------------+
-; N              ; 32    ; Signed Integer                             ;
-+----------------+-------+--------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------+
-; Post-Synthesis Netlist Statistics for Top Partition ;
-+-----------------------+-----------------------------+
-; Type                  ; Count                       ;
-+-----------------------+-----------------------------+
-; boundary_port         ; 100                         ;
-; cycloneiii_lcell_comb ; 229                         ;
-;     arith             ; 31                          ;
-;         3 data inputs ; 31                          ;
-;     normal            ; 198                         ;
-;         2 data inputs ; 15                          ;
-;         3 data inputs ; 98                          ;
-;         4 data inputs ; 85                          ;
-;                       ;                             ;
-; Max LUT depth         ; 35.00                       ;
-; Average LUT depth     ; 23.12                       ;
-+-----------------------+-----------------------------+
-
-
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:01     ;
-+----------------+--------------+
-
-
-+-------------------------------+
-; Analysis & Synthesis Messages ;
-+-------------------------------+
++---------------------------------+
+; Analysis & Elaboration Messages ;
++---------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Synthesis
+Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Tue May 07 17:59:30 2024
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off riscvsingle -c riscvsingle
+    Info: Processing started: Tue May 14 16:53:06 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off riscvsingle -c riscvsingle --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file /users/sel/documents/riscvsingle/src/mux2.vhd
-    Info (12022): Found design unit 1: mux2-behavior File: C:/Users/sel/Documents/riscvsingle/src/mux2.vhd Line: 16
+    Info (12022): Found design unit 1: mux2-behavior File: C:/Users/sel/Documents/riscvsingle/src/mux2.vhd Line: 19
     Info (12023): Found entity 1: mux2 File: C:/Users/sel/Documents/riscvsingle/src/mux2.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file /users/sel/documents/riscvsingle/src/mux3.vhd
-    Info (12022): Found design unit 1: mux3-behavior File: C:/Users/sel/Documents/riscvsingle/src/mux3.vhd Line: 16
+    Info (12022): Found design unit 1: mux3-behavior File: C:/Users/sel/Documents/riscvsingle/src/mux3.vhd Line: 19
     Info (12023): Found entity 1: mux3 File: C:/Users/sel/Documents/riscvsingle/src/mux3.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file /users/sel/documents/riscvsingle/src/flopr.vhd
-    Info (12022): Found design unit 1: flopr-behaviour File: C:/Users/sel/Documents/riscvsingle/src/flopr.vhd Line: 16
+    Info (12022): Found design unit 1: flopr-behaviour File: C:/Users/sel/Documents/riscvsingle/src/flopr.vhd Line: 19
     Info (12023): Found entity 1: flopr File: C:/Users/sel/Documents/riscvsingle/src/flopr.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file /users/sel/documents/riscvsingle/src/adder.vhd
     Info (12022): Found design unit 1: adder-behaviour File: C:/Users/sel/Documents/riscvsingle/src/adder.vhd Line: 20
@@ -307,19 +197,15 @@ Info (12021): Found 2 design units, including 1 entities, in source file /users/
 Info (12021): Found 2 design units, including 1 entities, in source file /users/sel/documents/riscvsingle/src/alu.vhd
     Info (12022): Found design unit 1: alu-behaviour File: C:/Users/sel/Documents/riscvsingle/src/alu.vhd Line: 13
     Info (12023): Found entity 1: alu File: C:/Users/sel/Documents/riscvsingle/src/alu.vhd Line: 1
+Info (12021): Found 2 design units, including 0 entities, in source file /users/sel/documents/riscvsingle/src/riscv_pkg.vhd
+    Info (12022): Found design unit 1: riscv_pkg File: C:/Users/sel/Documents/riscvsingle/src/riscv_pkg.vhd Line: 1
+    Info (12022): Found design unit 2: riscv_pkg-body File: C:/Users/sel/Documents/riscvsingle/src/riscv_pkg.vhd Line: 54
 Info (12127): Elaborating entity "alu" for the top level hierarchy
 Warning (10492): VHDL Process Statement warning at alu.vhd(66): signal "Result" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/sel/Documents/riscvsingle/src/alu.vhd Line: 66
-Info (286030): Timing-Driven Synthesis is running
-Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 329 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 67 input pins
-    Info (21059): Implemented 33 output pins
-    Info (21061): Implemented 229 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 4782 megabytes
-    Info: Processing ended: Tue May 07 17:59:41 2024
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:22
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 4775 megabytes
+    Info: Processing ended: Tue May 14 16:53:16 2024
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:21
 
 

@@ -6,10 +6,13 @@
 ---------------------------------
 
 entity mux3 is
+	generic(
+		Width : natural := 32
+	);
 	port (
-		d0, d1, d2 : in bit_vector(31 downto 0);
+		d0, d1, d2 : in bit_vector(Width-1 downto 0);
 		s : in bit_vector(1 downto 0);
-		y : out bit_vector(31 downto 0)
+		y : out bit_vector(Width-1 downto 0)
 	);
 end mux3;
 

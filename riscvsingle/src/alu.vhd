@@ -1,18 +1,18 @@
 entity alu is
-generic(
-	N : natural := 32
-);
-port(
-	A, B		  : in  bit_vector(N-1 downto 0);
-	ALUControl : in  bit_vector(2 downto 0);
-	Result	  : buffer bit_vector(N-1 downto 0);
-	Zero		  : out bit
-);
+	generic(
+		Width : natural := 32
+	);
+	port(
+		A, B		  : in  bit_vector(Width-1 downto 0);
+		ALUControl : in  bit_vector(2 downto 0);
+		Result	  : buffer bit_vector(Width-1 downto 0);
+		Zero		  : out bit
+	);
 end alu;
 
 architecture behaviour of alu is
 
-constant Result_zero : bit_vector(N-1 downto 0) := (others => '0');
+constant Result_zero : bit_vector(Width-1 downto 0) := (others => '0');
 
 function "+" (x, y : bit_vector) return bit_vector is
 	variable v : bit := '0';
@@ -31,11 +31,11 @@ function "-" (x, y : bit_vector) return bit_vector is
 begin
 	for i in 0 to x'length-1 loop
 		if (b = '1') then
-			r(i) := not a(i) xor y(i);
-			b := (a(i) and y(i)) or (not a(i) and b);
+			r(i) := not x(i) xor y(i);
+			b := (x(i) and y(i)) or (not x(i) and b);
 		else
-			r(i) := a(i) xor y(i);
-			b := not a(i) and y(i);
+			r(i) := x(i) xor y(i);
+			b := not x(i) and y(i);
 		end if;
 	end loop;
 	return r;

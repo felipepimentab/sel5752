@@ -6,10 +6,13 @@
 ---------------------------------
 
 entity flopr is
+	generic(
+		Width : natural := 32
+	);
 	port (
 		clk, reset : in bit;
-		d : in bit_vector(31 downto 0);
-		q: out bit_vector(31 downto 0)
+		d : in bit_vector(Width-1 downto 0);
+		q: out bit_vector(Width-1 downto 0)
 	);
 end flopr;
 

@@ -7,12 +7,12 @@
 
 entity adder is
 	generic(
-		N : natural := 32
+		Width : natural := 32
 	);
 	port(
-		a, b:  in bit_vector(N-1 downto 0);
+		a, b:  in bit_vector(Width-1 downto 0);
 		cin:   in bit;
-		y:    out bit_vector(N-1 downto 0);
+		y:    out bit_vector(Width-1 downto 0);
 		cout: out bit
 	);
 end adder;
@@ -23,9 +23,9 @@ port(a, b, ve : in bit;
 	     s, vs : out bit);
 end component;
 
-signal carry : bit_vector(N downto 0);
+signal carry : bit_vector(Width downto 0);
 
-begin adders: for i in 1 to N-1 generate
+begin adders: for i in 1 to Width-1 generate
 	begin inst: som_1a port map(
 		a => a(i),
 		b => b(i),
@@ -35,6 +35,6 @@ begin adders: for i in 1 to N-1 generate
 	);
 	end generate;
 	
-	cout <= carry(N);
+	cout <= carry(Width);
 	carry(0) <= cin;
 end behaviour;
