@@ -1,9 +1,13 @@
-# Atividade 8
+# Atividade 7
 
-A oitava atividade é criar um pacote chamado `riscv_pkg` (arquivo `riscv_pkg.vhd`), na pasta `src`, e incluir a declaração de componente para as entidades **mux2**, **mux3**, **flopr**, **adder** e **alu**. Todas essas entidades terão seus barramentos de dados atualizados para utilizar o parâmetro genérico **Width**, que definirá o tamanho do barramento de dados.
+A sétima atividade é incluir o arquivo `alu.vhd` ao projeto, defini-lo como toplevel, e obter os resultados de compilação.
 
-Transferir a implementação da função de sobrecarga dos operadores **"+"** e **"-"** do arquivo `alu.vhd` para o pacote.
+Para implementação da alu é necessário implementar uma função sobrecarregando o operador **"+"**, utilizando o projeto adder, para realizar a operação de soma entre dois operandos do tipo **bit_vector**, que não é definido para o operador **"+"**. Também é necessário sobrecarregar o operador **"-"**, para realizar a operação de subtração entre dois operandos do tipo **bit_vector**.
 
-Definir no mesmo pacote uma constante global chamada `RISCV_Data_Width`, com valor igual a **32**, e utilizá-la como valor *default* do parâmetro genérico em todas as entidades que fazem uso de genérico.
+O arquivo `alu.vhd` deve implementar uma unidade lógica aritmética que realize as seguintes operações com operando de **N** bits, de valor *default* de **32**, de acordo com o valor de **ALUControl**:
 
-Apresentar código `.VHD` do pacote.
+![Operações](./img-7.png)
+
+As entradas da alu devem ser nomeadas **A**, **B** e **ALUControl**, e as saídas **Result** e **Zero**.
+
+Enviar o arquivo `.VHD` e o arquivo `riscvsingle.fit.rpt` da alu implementada.
