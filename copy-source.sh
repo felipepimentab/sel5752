@@ -1,0 +1,1 @@
+cp -a ./riscvsingle/src/. ./ghdl/
