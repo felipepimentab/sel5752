@@ -1,9 +1,5 @@
----------------------------------
--- Título: aludec
--- Descrição: ALU Decoder
--- Autor: Felipe Pimenta Bernardo
--- Data: 27/06/2024
----------------------------------
+library work; 
+use work.riscv_pkg.all;
 
 entity aludec is
     port (

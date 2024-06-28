@@ -69,6 +69,17 @@ package riscv_pkg is
 			immext: out bit_vector(Width-1 downto 0)
     );
 	end component extend;
+	
+	component aludec is
+    port (
+        ALUOp      : in  bit_vector(1 downto 0);
+        funct3     : in  bit_vector(2 downto 0);
+        opb5       : in  bit;
+        funct7b5   : in  bit;
+        ALUControl : out bit_vector(2 downto 0)
+    );
+	end component aludec;
+
 
 end package riscv_pkg;
 
