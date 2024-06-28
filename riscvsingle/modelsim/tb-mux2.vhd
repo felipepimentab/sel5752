@@ -1,0 +1,81 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity tb_mux2 is
+end tb_mux2;
+
+architecture behavior of tb_mux2 is
+
+    -- Component Declaration for the Unit Under Test (UUT)
+    component mux2 is
+        generic(
+            N : natural := 32
+        );
+        port (
+            d0 : in bit_vector(N-1 downto 0);
+            d1 : in bit_vector(N-1 downto 0);
+            s  : in bit;
+            y  : out bit_vector(N-1 downto 0)
+        );
+    end component;
+
+    -- Inputs
+    signal d0 : bit_vector(31 downto 0) := (others => '0');
+    signal d1 : bit_vector(31 downto 0) := (others => '0');
+    signal s  : bit := '0';
+
+    -- Outputs
+    signal y : bit_vector(31 downto 0);
+
+begin
+
+    -- Instantiate the Unit Under Test (UUT)
+    uut: mux2
+        generic map (
+            N => 32
+        )
+        port map (
+            d0 => d0,
+            d1 => d1,
+            s  => s,
+            y  => y
+        );
+
+    -- Stimulus process
+    stim_proc: process
+    begin
+        -- Test case 1
+        d0 <= "00000000000000000000000000000001";
+        d1 <= "00000000000000000000000000000010";
+        s <= '0';
+        wait for 10 ns;
+
+        assert (y = d0) report "Test case 1 failed" severity error;
+
+        -- Test case 2
+        s <= '1';
+        wait for 10 ns;
+
+        assert (y = d1) report "Test case 2 failed" severity error;
+
+        -- Test case 3
+        d0 <= "11111111111111111111111111111111";
+        d1 <= "00000000000000000000000000000000";
+        s <= '0';
+        wait for 10 ns;
+
+        assert (y = d0) report "Test case 3 failed" severity error;
+
+        -- Test case 4
+        s <= '1';
+        wait for 10 ns;
+
+        assert (y = d1) report "Test case 4 failed" severity error;
+
+        -- End simulation
+	report "Simulation finished" severity error;
+        wait;
+    end process;
+
+end behavior;

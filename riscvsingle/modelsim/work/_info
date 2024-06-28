@@ -1,6 +1,7 @@
 m255
 K4
 z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
 13
 !s112 1.1
 !i10d 8192
@@ -8,3 +9,83 @@ z2
 !i10f 100
 cModel Technology
 dC:/intelFPGA_lite/20.1
+Emux2
+Z0 w1715714294
+!i122 0
+Z1 dE:/riscvsingle/modelsim
+Z2 8E:/riscvsingle/src/mux2.vhd
+Z3 FE:/riscvsingle/src/mux2.vhd
+l0
+L8 1
+VzmK?MDFJV?:D1X0^Y3_gF1
+!s100 4L>;nm]Cb=V;U5d8QToa31
+Z4 OV;C;2020.1;71
+32
+Z5 !s110 1716580272
+!i10b 1
+Z6 !s108 1716580272.000000
+Z7 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/riscvsingle/src/mux2.vhd|
+Z8 !s107 E:/riscvsingle/src/mux2.vhd|
+!i113 1
+Z9 o-work work -2002 -explicit
+Z10 tExplicit 1 CvgOpt 0
+Abehavior
+DEx4 work 4 mux2 0 22 zmK?MDFJV?:D1X0^Y3_gF1
+!i122 0
+l20
+L19 5
+VOl]P1hUL;V<C[M>goiHkJ2
+!s100 >jFcFaRYR0?VIR]gH]hDT0
+R4
+32
+R5
+!i10b 1
+R6
+R7
+R8
+!i113 1
+R9
+R10
+Etb_mux2
+Z11 w1716580523
+Z12 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z13 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z14 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 2
+R1
+Z15 8E:/riscvsingle/modelsim/tb-mux2.vhd
+Z16 FE:/riscvsingle/modelsim/tb-mux2.vhd
+l0
+L5 1
+Vm<3TU8]GgdKe2j0ilen?Y2
+!s100 THm;AJ=RkCB7V]TO8OZ7Y0
+R4
+32
+Z17 !s110 1716580545
+!i10b 1
+Z18 !s108 1716580545.000000
+Z19 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|E:/riscvsingle/modelsim/tb-mux2.vhd|
+Z20 !s107 E:/riscvsingle/modelsim/tb-mux2.vhd|
+!i113 1
+R9
+R10
+Abehavior
+R12
+R13
+R14
+Z21 DEx4 work 7 tb_mux2 0 22 m<3TU8]GgdKe2j0ilen?Y2
+!i122 2
+l31
+L8 74
+VWFgC2iHDl[Kzk5gjMFUof3
+!s100 3X>Paj`m34E5;`U0MZ<jh2
+R4
+32
+R17
+!i10b 1
+R18
+R19
+R20
+!i113 1
+R9
+R10
