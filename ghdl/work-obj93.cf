@@ -1,16 +1,19 @@
 v 4
-file . "adder.vhd" "ddbed2b72196e8ae074370e80e14485da5f1d026" "20240507170823.034":
-  entity adder at 8( 165) + 0 on 21;
-  architecture behaviour of adder at 16( 340) + 0 on 22;
-file . "mux3.vhd" "db610af899bf026f0605fd646f3cd57922184015" "20240409202636.429":
-  entity mux3 at 8( 167) + 0 on 13;
-  architecture behavior of mux3 at 16( 275) + 0 on 14;
-file . "mux2.vhd" "dd7179f84ec731b5512ae785f93926de5090cd59" "20240409202615.160":
-  entity mux2 at 8( 164) + 0 on 11;
-  architecture behavior of mux2 at 16( 253) + 0 on 12;
-file . "flopr.vhd" "edbe37259f9fced1d588284697cbe3d5b90dc16d" "20240416200028.449":
-  entity flopr at 8( 164) + 0 on 17;
-  architecture behaviour of flopr at 16( 319) + 0 on 18;
+file . "aludec.vhd" "7000f19daf858c16b69e78ec5677f939df130d08" "20240628130628.654":
+  entity aludec at 8( 170) + 0 on 23;
+  architecture behavior of aludec at 18( 424) + 0 on 24;
 file . "som_1a.vhd" "0937ba582471146f8f37a6e2aab47e8a170edf3c" "20240507170656.999":
   entity som_1a at 1( 0) + 0 on 19;
   architecture teste of som_1a at 6( 94) + 0 on 20;
+file . "flopr.vhd" "edbe37259f9fced1d588284697cbe3d5b90dc16d" "20240416200028.449":
+  entity flopr at 8( 164) + 0 on 17;
+  architecture behaviour of flopr at 16( 319) + 0 on 18;
+file . "mux2.vhd" "dd7179f84ec731b5512ae785f93926de5090cd59" "20240409202615.160":
+  entity mux2 at 8( 164) + 0 on 11;
+  architecture behavior of mux2 at 16( 253) + 0 on 12;
+file . "mux3.vhd" "db610af899bf026f0605fd646f3cd57922184015" "20240409202636.429":
+  entity mux3 at 8( 167) + 0 on 13;
+  architecture behavior of mux3 at 16( 275) + 0 on 14;
+file . "adder.vhd" "ddbed2b72196e8ae074370e80e14485da5f1d026" "20240507170823.034":
+  entity adder at 8( 165) + 0 on 21;
+  architecture behaviour of adder at 16( 340) + 0 on 22;
