@@ -1,5 +1,13 @@
+library work;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.all;
+
 package riscv_pkg is
 	constant RISCV_Data_Width : natural := 32;
+	
+	function to_integer(input : bit_vector) return integer;
 	
 	function "+" (x, y : bit_vector) return bit_vector;
 
@@ -49,6 +57,19 @@ package riscv_pkg is
 			cout: out bit
 		);
 	end component adder;
+	
+	component extend is
+		generic (
+			Width : natural := 32
+		);
+
+		port (
+			instr:  in  bit_vector(Width-1 downto 7);
+			immsrc: in  bit_vector(1 downto 0);
+			immext: out bit_vector(Width-1 downto 0)
+    );
+	end component extend;
+
 end package riscv_pkg;
 
 package body riscv_pkg is
@@ -79,5 +100,16 @@ package body riscv_pkg is
 		end loop;
 		return r;
 	end "-";
+	
+	function to_integer(input : bit_vector) return integer is 
+		variable output : integer := 0;
+	begin 
+		for i in 0 to input'length-1 loop
+			if input(i) = '1' then
+				output := output + 2**i;
+			end if;
+		end loop;
+		return output;
+	end to_integer; 
 
 end package body riscv_pkg;
