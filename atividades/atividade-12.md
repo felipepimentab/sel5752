@@ -52,6 +52,6 @@ Esta última parte deverá ser realizada no ModelSim. Todos os arquivos deverão
 
 > Figura 5 - Ordem de compilação no ModelSim
 
-OBS: No Quartus, a variável "*Auto RAM Replacement*" deverá ser configurada para "*Off*". 
+OBS: No Quartus, a variável "*Auto RAM Replacement*" deverá ser configurada para "*Off*".
 
 OBS: Todas as declarações de componentes dos arquivos em anexo deverão ser inseridas no pacote `riscv_pkg.vhd`.
