@@ -14,19 +14,19 @@ Pasta onde serão armazenados os códigos fonte em VHDL para análise com a ferr
 
 #### Analisar
 
-```
+```bash
 ghdl -a <path_to_file>.vhd
 ```
 
 #### Elaborar
 
-```
+```bash
 ghdl -e <entity_name>
 ```
 
 #### Executar (Run)
 
-```
+```bash
 ghdl -r <entity_name>
 ```
 
