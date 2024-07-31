@@ -1,4 +1,10 @@
+library work;
+use work.riscv_pkg.all;
+
 entity controller is
+	generic(
+		Width : natural := 32
+	);
 	port(op: in BIT_VECTOR(6 downto 0);
 		funct3: in BIT_VECTOR(2 downto 0);
 		funct7b5, Zero: in BIT;

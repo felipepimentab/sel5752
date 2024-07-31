@@ -1,16 +1,20 @@
+library work;
 use WORK.RISCV_PKG.all;
 
 entity testbench is
+	generic(
+		Width : natural := 32
+	);
 end;
 
 architecture test of testbench is
 	component top
 		port(clk, reset: in BIT;
-			WriteData, DataAdr: out BIT_VECTOR(31 downto 0);
+			WriteData, DataAdr: out BIT_VECTOR(Width-1 downto 0);
 			MemWrite: out BIT);
 	end component;
 	
-	signal WriteData, DataAdr: BIT_VECTOR(31 downto 0);
+	signal WriteData, DataAdr: BIT_VECTOR(Width-1 downto 0);
 	signal clk, reset, MemWrite: BIT;
 begin
 	-- instantiate device to be tested

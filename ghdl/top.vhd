@@ -1,29 +1,35 @@
+library work;
+use work.riscv_pkg.all;
+
 entity top is
+	generic(
+		Width : natural := 32
+	);
 	port(clk, reset: in BIT;
-		WriteData, DataAdr: buffer BIT_VECTOR(31 downto 0);
+		WriteData, DataAdr: buffer BIT_VECTOR(Width-1 downto 0);
 		MemWrite: buffer BIT);
 end;
 
 architecture test of top is
 	component riscvsingle
 		port(clk, reset: in BIT;
-			PC: out BIT_VECTOR(31 downto 0);
-			Instr: in BIT_VECTOR(31 downto 0);
+			PC: out BIT_VECTOR(Width-1 downto 0);
+			Instr: in BIT_VECTOR(Width-1 downto 0);
 			MemWrite: out BIT;
-			ALUResult, WriteData: out BIT_VECTOR(31 downto 0);
-			ReadData: in BIT_VECTOR(31 downto 0));
+			ALUResult, WriteData: out BIT_VECTOR(Width-1 downto 0);
+			ReadData: in BIT_VECTOR(Width-1 downto 0));
 	end component;
 	component imem
-		port(a: in BIT_VECTOR(31 downto 0);
-			rd: out BIT_VECTOR(31 downto 0));
+		port(a: in BIT_VECTOR(Width-1 downto 0);
+			rd: out BIT_VECTOR(Width-1 downto 0));
 	end component;
 	component dmem
 		port(clk, we: in BIT;
-			a, wd: in BIT_VECTOR(31 downto 0);
-			rd: out BIT_VECTOR(31 downto 0));
+			a, wd: in BIT_VECTOR(Width-1 downto 0);
+			rd: out BIT_VECTOR(Width-1 downto 0));
 	end component;
 	
-	signal PC, Instr, ReadData: BIT_VECTOR(31 downto 0);
+	signal PC, Instr, ReadData: BIT_VECTOR(Width-1 downto 0);
 begin
 	-- instantiate processor and memories
 	rvsingle: riscvsingle port map( clk, reset, PC, Instr,

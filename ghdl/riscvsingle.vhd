@@ -1,10 +1,16 @@
+library work;
+use work.riscv_pkg.all;
+
 entity riscvsingle is
+	generic(
+		Width : natural := 32
+	);
 	port(clk, reset: in BIT;
-		PC: out BIT_VECTOR(31 downto 0);
-		Instr: in BIT_VECTOR(31 downto 0);
+		PC: out BIT_VECTOR(Width-1 downto 0);
+		Instr: in BIT_VECTOR(Width-1 downto 0);
 		MemWrite: out BIT;
-		ALUResult, WriteData: out BIT_VECTOR(31 downto 0);
-		ReadData: in BIT_VECTOR(31 downto 0));
+		ALUResult, WriteData: out BIT_VECTOR(Width-1 downto 0);
+		ReadData: in BIT_VECTOR(Width-1 downto 0));
 end;
 
 architecture struct of riscvsingle is
@@ -27,10 +33,10 @@ architecture struct of riscvsingle is
 			ImmSrc:			in BIT_VECTOR(1 downto 0);
 			ALUControl:		in BIT_VECTOR(2 downto 0);
 			Zero:			out BIT;
-			PC:				out BIT_VECTOR(31 downto 0);
-			Instr:			in BIT_VECTOR(31 downto 0);
-			ALUResult, WriteData:	out BIT_VECTOR(31 downto 0);
-			ReadData:		in BIT_VECTOR(31 downto 0));
+			PC:				out BIT_VECTOR(Width-1 downto 0);
+			Instr:			in BIT_VECTOR(Width-1 downto 0);
+			ALUResult, WriteData:	out BIT_VECTOR(Width-1 downto 0);
+			ReadData:		in BIT_VECTOR(Width-1 downto 0));
 	end component;
 	
 	signal ALUSrc, RegWrite, Jump, Zero, PCSrc: BIT;

@@ -7,12 +7,12 @@
 
 entity mux2 is
 	generic(
-		N : natural := 32
+		Width : natural := 32
 	);
 	port (
-		d0, d1 : in bit_vector(N-1 downto 0);
+		d0, d1 : in bit_vector(Width-1 downto 0);
 		s		 : in bit;
-		y		 : out bit_vector(N-1 downto 0)
+		y		 : out bit_vector(Width-1 downto 0)
 	);
 end mux2;
 

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for riscvsingle
-Fri Jun 28 11:21:42 2024
+Tue Jul 30 21:05:16 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -10,13 +10,7 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Source Files Read
-  6. Analysis & Synthesis Resource Usage Summary
-  7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Post-Synthesis Netlist Statistics for Top Partition
- 10. Elapsed Time Per Partition
- 11. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Messages
 
 
 
@@ -43,22 +37,22 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Jun 28 11:21:42 2024       ;
+; Analysis & Synthesis Status        ; Failed - Tue Jul 30 21:05:16 2024           ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; riscvsingle                                 ;
-; Top-level Entity Name              ; aludec                                      ;
+; Top-level Entity Name              ; top                                         ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 5                                           ;
-;     Total combinational functions  ; 5                                           ;
-;     Dedicated logic registers      ; 0                                           ;
-; Total registers                    ; 0                                           ;
-; Total pins                         ; 10                                          ;
-; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 0                                           ;
-; Embedded Multiplier 9-bit elements ; 0                                           ;
-; Total PLLs                         ; 0                                           ;
-; UFM blocks                         ; 0                                           ;
-; ADC blocks                         ; 0                                           ;
+; Total logic elements               ; N/A until Partition Merge                   ;
+;     Total combinational functions  ; N/A until Partition Merge                   ;
+;     Dedicated logic registers      ; N/A until Partition Merge                   ;
+; Total registers                    ; N/A until Partition Merge                   ;
+; Total pins                         ; N/A until Partition Merge                   ;
+; Total virtual pins                 ; N/A until Partition Merge                   ;
+; Total memory bits                  ; N/A until Partition Merge                   ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
+; Total PLLs                         ; N/A until Partition Merge                   ;
+; UFM blocks                         ; N/A until Partition Merge                   ;
+; ADC blocks                         ; N/A until Partition Merge                   ;
 +------------------------------------+---------------------------------------------+
 
 
@@ -68,8 +62,10 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; 10M50DAF256C7G     ;                    ;
-; Top-level entity name                                            ; aludec             ; riscvsingle        ;
+; Top-level entity name                                            ; top                ; riscvsingle        ;
 ; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; VHDL Show LMF Mapping Messages                                   ; Off                ;                    ;
+; VHDL Version                                                     ; VHDL_2008          ; VHDL_1993          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
 ; Enable compact report table                                      ; Off                ; Off                ;
@@ -78,7 +74,6 @@ https://fpgasoftware.intel.com/eula.
 ; Preserve fewer node names                                        ; On                 ; On                 ;
 ; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
 ; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
-; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
 ; State Machine Processing                                         ; Auto               ; Auto               ;
 ; Safe State Machine                                               ; Off                ; Off                ;
 ; Extract Verilog State Machines                                   ; On                 ; On                 ;
@@ -164,114 +159,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                            ;
-+----------------------------------+-----------------+-----------------+----------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path     ; Library ;
-+----------------------------------+-----------------+-----------------+----------------------------------+---------+
-; ../src/mux2.vhd                  ; yes             ; User VHDL File  ; E:/riscvsingle/src/mux2.vhd      ;         ;
-; ../src/mux3.vhd                  ; yes             ; User VHDL File  ; E:/riscvsingle/src/mux3.vhd      ;         ;
-; ../src/flopr.vhd                 ; yes             ; User VHDL File  ; E:/riscvsingle/src/flopr.vhd     ;         ;
-; ../src/adder.vhd                 ; yes             ; User VHDL File  ; E:/riscvsingle/src/adder.vhd     ;         ;
-; ../src/som_1a.vhd                ; yes             ; User VHDL File  ; E:/riscvsingle/src/som_1a.vhd    ;         ;
-; ../src/alu.vhd                   ; yes             ; User VHDL File  ; E:/riscvsingle/src/alu.vhd       ;         ;
-; ../src/riscv_pkg.vhd             ; yes             ; User VHDL File  ; E:/riscvsingle/src/riscv_pkg.vhd ;         ;
-; ../src/regfile.vhd               ; yes             ; User VHDL File  ; E:/riscvsingle/src/regfile.vhd   ;         ;
-; ../src/extend.vhd                ; yes             ; User VHDL File  ; E:/riscvsingle/src/extend.vhd    ;         ;
-; ../src/aludec.vhd                ; yes             ; User VHDL File  ; E:/riscvsingle/src/aludec.vhd    ;         ;
-+----------------------------------+-----------------+-----------------+----------------------------------+---------+
-
-
-+--------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                  ;
-+---------------------------------------------+----------------+
-; Resource                                    ; Usage          ;
-+---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 5              ;
-;                                             ;                ;
-; Total combinational functions               ; 5              ;
-; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 4              ;
-;     -- 3 input functions                    ; 0              ;
-;     -- <=2 input functions                  ; 1              ;
-;                                             ;                ;
-; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 5              ;
-;     -- arithmetic mode                      ; 0              ;
-;                                             ;                ;
-; Total registers                             ; 0              ;
-;     -- Dedicated logic registers            ; 0              ;
-;     -- I/O registers                        ; 0              ;
-;                                             ;                ;
-; I/O pins                                    ; 10             ;
-;                                             ;                ;
-; Embedded Multiplier 9-bit elements          ; 0              ;
-;                                             ;                ;
-; Maximum fan-out node                        ; ALUOp[1]~input ;
-; Maximum fan-out                             ; 3              ;
-; Total fan-out                               ; 31             ;
-; Average fan-out                             ; 1.24           ;
-+---------------------------------------------+----------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; |aludec                    ; 5 (5)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 10   ; 0            ; 0          ; |aludec             ; aludec      ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+------------------------------------------------------+
-; General Register Statistics                          ;
-+----------------------------------------------+-------+
-; Statistic                                    ; Value ;
-+----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
-; Number of registers using Preset             ; 0     ;
-+----------------------------------------------+-------+
-
-
-+-----------------------------------------------------+
-; Post-Synthesis Netlist Statistics for Top Partition ;
-+-----------------------+-----------------------------+
-; Type                  ; Count                       ;
-+-----------------------+-----------------------------+
-; boundary_port         ; 10                          ;
-; cycloneiii_lcell_comb ; 6                           ;
-;     normal            ; 6                           ;
-;         1 data inputs ; 1                           ;
-;         2 data inputs ; 1                           ;
-;         4 data inputs ; 4                           ;
-;                       ;                             ;
-; Max LUT depth         ; 3.00                        ;
-; Average LUT depth     ; 2.46                        ;
-+-----------------------+-----------------------------+
-
-
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:00     ;
-+----------------+--------------+
-
-
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Fri Jun 28 11:21:34 2024
+    Info: Processing started: Tue Jul 30 21:05:08 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off riscvsingle -c riscvsingle
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -295,7 +189,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file /riscvs
     Info (12023): Found entity 1: alu File: E:/riscvsingle/src/alu.vhd Line: 1
 Info (12021): Found 2 design units, including 0 entities, in source file /riscvsingle/src/riscv_pkg.vhd
     Info (12022): Found design unit 1: riscv_pkg File: E:/riscvsingle/src/riscv_pkg.vhd Line: 7
-    Info (12022): Found design unit 2: riscv_pkg-body File: E:/riscvsingle/src/riscv_pkg.vhd Line: 86
+    Info (12022): Found design unit 2: riscv_pkg-body File: E:/riscvsingle/src/riscv_pkg.vhd Line: 201
 Info (12021): Found 2 design units, including 1 entities, in source file /riscvsingle/src/regfile.vhd
     Info (12022): Found design unit 1: regfile-behavior File: E:/riscvsingle/src/regfile.vhd Line: 17
     Info (12023): Found entity 1: regfile File: E:/riscvsingle/src/regfile.vhd Line: 4
@@ -305,18 +199,87 @@ Info (12021): Found 2 design units, including 1 entities, in source file /riscvs
 Info (12021): Found 2 design units, including 1 entities, in source file /riscvsingle/src/aludec.vhd
     Info (12022): Found design unit 1: aludec-behavior File: E:/riscvsingle/src/aludec.vhd Line: 14
     Info (12023): Found entity 1: aludec File: E:/riscvsingle/src/aludec.vhd Line: 4
-Info (12127): Elaborating entity "aludec" for the top level hierarchy
-Info (286030): Timing-Driven Synthesis is running
-Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 15 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 7 input pins
-    Info (21059): Implemented 3 output pins
-    Info (21061): Implemented 5 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4775 megabytes
-    Info: Processing ended: Fri Jun 28 11:21:42 2024
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:20
+Info (12021): Found 2 design units, including 1 entities, in source file /riscvsingle/src/controller.vhd
+    Info (12022): Found design unit 1: controller-struct File: E:/riscvsingle/src/controller.vhd Line: 20
+    Info (12023): Found entity 1: controller File: E:/riscvsingle/src/controller.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /riscvsingle/src/datapath.vhd
+    Info (12022): Found design unit 1: datapath-struct File: E:/riscvsingle/src/datapath.vhd Line: 21
+    Info (12023): Found entity 1: datapath File: E:/riscvsingle/src/datapath.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /riscvsingle/src/dmem.vhd
+    Info (12022): Found design unit 1: dmem-behave File: E:/riscvsingle/src/dmem.vhd Line: 15
+    Info (12023): Found entity 1: dmem File: E:/riscvsingle/src/dmem.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /riscvsingle/src/imem.vhd
+    Info (12022): Found design unit 1: imem-behave File: E:/riscvsingle/src/imem.vhd Line: 17
+    Info (12023): Found entity 1: imem File: E:/riscvsingle/src/imem.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file /riscvsingle/src/maindec.vhd
+    Info (12022): Found design unit 1: maindec-behave File: E:/riscvsingle/src/maindec.vhd Line: 17
+    Info (12023): Found entity 1: maindec File: E:/riscvsingle/src/maindec.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /riscvsingle/src/riscvsingle.vhd
+    Info (12022): Found design unit 1: riscvsingle-struct File: E:/riscvsingle/src/riscvsingle.vhd Line: 16
+    Info (12023): Found entity 1: riscvsingle File: E:/riscvsingle/src/riscvsingle.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /riscvsingle/src/testbench.vhd
+    Info (12022): Found design unit 1: testbench-test File: E:/riscvsingle/src/testbench.vhd Line: 10
+    Info (12023): Found entity 1: testbench File: E:/riscvsingle/src/testbench.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /riscvsingle/src/top.vhd
+    Info (12022): Found design unit 1: top-test File: E:/riscvsingle/src/top.vhd Line: 13
+    Info (12023): Found entity 1: top File: E:/riscvsingle/src/top.vhd Line: 4
+Info (12127): Elaborating entity "top" for the top level hierarchy
+Info (12128): Elaborating entity "riscvsingle" for hierarchy "riscvsingle:rvsingle" File: E:/riscvsingle/src/top.vhd Line: 35
+Warning (10036): Verilog HDL or VHDL warning at riscvsingle.vhd(42): object "Jump" assigned a value but never read File: E:/riscvsingle/src/riscvsingle.vhd Line: 42
+Info (12128): Elaborating entity "controller" for hierarchy "riscvsingle:rvsingle|controller:c" File: E:/riscvsingle/src/riscvsingle.vhd Line: 46
+Info (12128): Elaborating entity "maindec" for hierarchy "riscvsingle:rvsingle|controller:c|maindec:md" File: E:/riscvsingle/src/controller.vhd Line: 41
+Info (12128): Elaborating entity "aludec" for hierarchy "riscvsingle:rvsingle|controller:c|aludec:ad" File: E:/riscvsingle/src/controller.vhd Line: 43
+Info (12128): Elaborating entity "datapath" for hierarchy "riscvsingle:rvsingle|datapath:dp" File: E:/riscvsingle/src/riscvsingle.vhd Line: 50
+Info (12128): Elaborating entity "flopr" for hierarchy "riscvsingle:rvsingle|datapath:dp|flopr:pcreg" File: E:/riscvsingle/src/datapath.vhd Line: 66
+Info (12128): Elaborating entity "adder" for hierarchy "riscvsingle:rvsingle|datapath:dp|adder:pcadd4" File: E:/riscvsingle/src/datapath.vhd Line: 67
+Info (12128): Elaborating entity "som_1a" for hierarchy "riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:1:inst" File: E:/riscvsingle/src/adder.vhd Line: 29
+Info (12128): Elaborating entity "mux2" for hierarchy "riscvsingle:rvsingle|datapath:dp|mux2:pcmux" File: E:/riscvsingle/src/datapath.vhd Line: 69
+Info (10041): Inferred latch for "y[0]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[1]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[2]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[3]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[4]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[5]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[6]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[7]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[8]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[9]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[10]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[11]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[12]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[13]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[14]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[15]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[16]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[17]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[18]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[19]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[20]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[21]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[22]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[23]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[24]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[25]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[26]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[27]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[28]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[29]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[30]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (10041): Inferred latch for "y[31]" at mux2.vhd(21) File: E:/riscvsingle/src/mux2.vhd Line: 21
+Info (12128): Elaborating entity "regfile" for hierarchy "riscvsingle:rvsingle|datapath:dp|regfile:rf" File: E:/riscvsingle/src/datapath.vhd Line: 72
+Info (12128): Elaborating entity "extend" for hierarchy "riscvsingle:rvsingle|datapath:dp|extend:ext" File: E:/riscvsingle/src/datapath.vhd Line: 75
+Info (12128): Elaborating entity "alu" for hierarchy "riscvsingle:rvsingle|datapath:dp|alu:mainalu" File: E:/riscvsingle/src/datapath.vhd Line: 79
+Info (12128): Elaborating entity "mux3" for hierarchy "riscvsingle:rvsingle|datapath:dp|mux3:resultmux" File: E:/riscvsingle/src/datapath.vhd Line: 80
+Info (12128): Elaborating entity "imem" for hierarchy "imem:imem1" File: E:/riscvsingle/src/top.vhd Line: 38
+Warning (10492): VHDL Process Statement warning at imem.vhd(44): signal "mem" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: E:/riscvsingle/src/imem.vhd Line: 44
+Error (10385): VHDL error at riscv_pkg.vhd(234): index value 0 is outside the range (31 downto 2) of object "input" File: E:/riscvsingle/src/riscv_pkg.vhd Line: 234
+Error (10658): VHDL Operator error at riscv_pkg.vhd(234): failed to evaluate call to operator ""="" File: E:/riscvsingle/src/riscv_pkg.vhd Line: 234
+Error (10657): VHDL Subprogram error at imem.vhd(44):  failed to elaborate call to subprogram "to_integer" File: E:/riscvsingle/src/imem.vhd Line: 44
+Error (12152): Can't elaborate user hierarchy "imem:imem1" File: E:/riscvsingle/src/top.vhd Line: 38
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 4 errors, 3 warnings
+    Error: Peak virtual memory: 4778 megabytes
+    Error: Processing ended: Tue Jul 30 21:05:16 2024
+    Error: Elapsed time: 00:00:08
+    Error: Total CPU time (on all processors): 00:00:20
 
 

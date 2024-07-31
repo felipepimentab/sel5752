@@ -5,7 +5,7 @@ entity alu is
 	port(
 		A, B		  : in  bit_vector(Width-1 downto 0);
 		ALUControl : in  bit_vector(2 downto 0);
-		Result	  : buffer bit_vector(Width-1 downto 0);
+		ALUResult	  : out bit_vector(Width-1 downto 0);
 		Zero		  : out bit
 	);
 end alu;
@@ -46,24 +46,24 @@ begin
 	begin
 		case ALUControl is
 			when "000" => -- soma
-				Result <= A + B;
+				ALUResult <= A + B;
 			when "001" => -- subtração
-				Result <= A - B;
+				ALUResult <= A - B;
 			when "010" => -- AND
-				Result <= A and B;
+				ALUResult <= A and B;
 			when "011" => -- OR
-				Result <= A or B;
+				ALUResult <= A or B;
 			when "101" => -- SLT
 				if (A < B) then
-					Result <= (others => '1');
+					ALUResult <= (others => '1');
 				else
-					Result <= (others => '0');
+					ALUResult <= (others => '0');
 				end if;
 			when others =>
-				Result <= (others => '0');
+				ALUResult <= (others => '0');
 		end case;
 		
-		if (Result = Result_zero) then
+		if (ALUResult = Result_zero) then
 			Zero <= '1';
 		else
 			Zero <= '0';

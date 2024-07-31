@@ -1,4 +1,10 @@
+library work;
+use work.riscv_pkg.all;
+
 entity maindec is
+	generic(
+		Width : natural := 32
+	);
 	port(op: in BIT_VECTOR(6 downto 0);
 		ResultSrc: out BIT_VECTOR(1 downto 0);
 		MemWrite: out BIT;

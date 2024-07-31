@@ -1,19 +1,22 @@
 library IEEE;
 use IEEE.NUMERIC_BIT.all;		-- Used for rising_edge function
-
+library work;
 use WORK.RISCV_PKG.all;
 
 entity dmem is
+	generic(
+		Width : natural := 32
+	);
 	port(clk, we: in BIT;
-		a, wd: in BIT_VECTOR(31 downto 0);
-		rd: out BIT_VECTOR(31 downto 0));
+		a, wd: in BIT_VECTOR(Width-1 downto 0);
+		rd: out BIT_VECTOR(Width-1 downto 0));
 end;
 
 architecture behave of dmem is
 begin
 	process is
 		type ramtype is array (63 downto 0) of
-		BIT_VECTOR(31 downto 0);
+		BIT_VECTOR(Width-1 downto 0);
 		variable mem: ramtype;
 	begin
 		-- read or write memory

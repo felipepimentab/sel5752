@@ -58,6 +58,31 @@ package riscv_pkg is
 		);
 	end component adder;
 	
+	component alu is
+		generic(
+			Width : natural := 32
+		);
+		port(
+			A, B		  : in  bit_vector(Width-1 downto 0);
+			ALUControl : in  bit_vector(2 downto 0);
+			ALUResult	  : out bit_vector(Width-1 downto 0);
+			Zero		  : out bit
+		);
+	end component alu;
+	
+	component regfile is
+		generic(
+			Width : natural := 32
+		);
+		port(
+			A1, A2, A3 : in bit_vector(4 downto 0);
+			WE3: in bit;
+			WD3: in bit_vector(Width-1 downto 0);
+			clk: in bit;
+			RD1, RD2: out bit_vector(Width-1 downto 0)
+		);
+	end component regfile;
+	
 	component extend is
 		generic (
 			Width : natural := 32
@@ -79,6 +104,96 @@ package riscv_pkg is
         ALUControl : out bit_vector(2 downto 0)
     );
 	end component aludec;
+	
+	component controller is
+		generic(
+			Width : natural := 32
+		);
+		port(op: in BIT_VECTOR(6 downto 0);
+			funct3: in BIT_VECTOR(2 downto 0);
+			funct7b5, Zero: in BIT;
+			ResultSrc: out BIT_VECTOR(1 downto 0);
+			MemWrite: out BIT;
+			PCSrc, ALUSrc: out BIT;
+			RegWrite: out BIT;
+			Jump: buffer BIT;
+			ImmSrc: out BIT_VECTOR(1 downto 0);
+			ALUControl: out BIT_VECTOR(2 downto 0));
+	end component controller;
+	
+	component datapath is
+		generic(
+			Width : natural := 32
+		);
+		port(clk, reset: in BIT;
+			ResultSrc: in BIT_VECTOR(1 downto 0);
+			PCSrc, ALUSrc: in BIT;
+			RegWrite: in BIT;
+			ImmSrc: in BIT_VECTOR(1 downto 0);
+			ALUControl: in BIT_VECTOR(2 downto 0);
+			Zero: out BIT;
+			PC: buffer BIT_VECTOR(Width-1 downto 0);
+			Instr: in BIT_VECTOR(Width-1 downto 0);
+			ALUResult, WriteData: buffer BIT_VECTOR(Width-1 downto 0);
+			ReadData: in BIT_VECTOR(Width-1 downto 0));
+	end component datapath;
+	
+	component dmem is
+		generic(
+			Width : natural := 32
+		);
+		port(clk, we: in BIT;
+			a, wd: in BIT_VECTOR(Width-1 downto 0);
+			rd: out BIT_VECTOR(Width-1 downto 0));
+	end component dmem;
+	
+	component imem is
+		generic(
+			Width : natural := 32
+		);
+		port(a: in BIT_VECTOR(Width-1 downto 0);
+			rd: out BIT_VECTOR(Width-1 downto 0));
+	end component imem;
+	
+	component maindec is
+		generic(
+			Width : natural := 32
+		);
+		port(op: in BIT_VECTOR(6 downto 0);
+			ResultSrc: out BIT_VECTOR(1 downto 0);
+			MemWrite: out BIT;
+			Branch, ALUSrc: out BIT;
+			RegWrite, Jump: out BIT;
+			ImmSrc: out BIT_VECTOR(1 downto 0);
+			ALUOp: out BIT_VECTOR(1 downto 0));
+	end component maindec;
+	
+	component riscvsingle is
+		generic(
+			Width : natural := 32
+		);
+		port(clk, reset: in BIT;
+			PC: out BIT_VECTOR(Width-1 downto 0);
+			Instr: in BIT_VECTOR(Width-1 downto 0);
+			MemWrite: out BIT;
+			ALUResult, WriteData: out BIT_VECTOR(Width-1 downto 0);
+			ReadData: in BIT_VECTOR(Width-1 downto 0));
+	end component riscvsingle;
+	
+	component testbench is
+		generic(
+			Width : natural := 32
+		);
+	end component testbench;
+	
+	component top is
+		generic(
+			Width : natural := 32
+		);
+		port(clk, reset: in BIT;
+			WriteData, DataAdr: buffer BIT_VECTOR(Width-1 downto 0);
+			MemWrite: buffer BIT);
+	end component top;
 
 
 end package riscv_pkg;
