@@ -1,5 +1,5 @@
 Analysis & Synthesis report for riscvsingle
-Tue Jul 30 21:05:16 2024
+Tue Jul 30 21:20:17 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -10,7 +10,35 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Parameter Settings for User Entity Instance: Top-level Entity: |top
+ 12. Parameter Settings for User Entity Instance: riscvsingle:rvsingle
+ 13. Parameter Settings for User Entity Instance: riscvsingle:rvsingle|controller:c
+ 14. Parameter Settings for User Entity Instance: riscvsingle:rvsingle|controller:c|maindec:md
+ 15. Parameter Settings for User Entity Instance: riscvsingle:rvsingle|datapath:dp
+ 16. Parameter Settings for User Entity Instance: riscvsingle:rvsingle|datapath:dp|flopr:pcreg
+ 17. Parameter Settings for User Entity Instance: riscvsingle:rvsingle|datapath:dp|adder:pcadd4
+ 18. Parameter Settings for User Entity Instance: riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch
+ 19. Parameter Settings for User Entity Instance: riscvsingle:rvsingle|datapath:dp|mux2:pcmux
+ 20. Parameter Settings for User Entity Instance: riscvsingle:rvsingle|datapath:dp|regfile:rf
+ 21. Parameter Settings for User Entity Instance: riscvsingle:rvsingle|datapath:dp|extend:ext
+ 22. Parameter Settings for User Entity Instance: riscvsingle:rvsingle|datapath:dp|mux2:srcbmux
+ 23. Parameter Settings for User Entity Instance: riscvsingle:rvsingle|datapath:dp|alu:mainalu
+ 24. Parameter Settings for User Entity Instance: riscvsingle:rvsingle|datapath:dp|mux3:resultmux
+ 25. Parameter Settings for User Entity Instance: imem:imem1
+ 26. Parameter Settings for User Entity Instance: dmem:dmem1
+ 27. Port Connectivity Checks: "riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch"
+ 28. Port Connectivity Checks: "riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:1:inst"
+ 29. Port Connectivity Checks: "riscvsingle:rvsingle|datapath:dp|adder:pcadd4"
+ 30. Port Connectivity Checks: "riscvsingle:rvsingle|controller:c"
+ 31. Post-Synthesis Netlist Statistics for Top Partition
+ 32. Elapsed Time Per Partition
+ 33. Analysis & Synthesis Messages
 
 
 
@@ -37,22 +65,22 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Tue Jul 30 21:05:16 2024           ;
+; Analysis & Synthesis Status        ; Successful - Tue Jul 30 21:20:17 2024       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; riscvsingle                                 ;
 ; Top-level Entity Name              ; top                                         ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; N/A until Partition Merge                   ;
-;     Total combinational functions  ; N/A until Partition Merge                   ;
-;     Dedicated logic registers      ; N/A until Partition Merge                   ;
-; Total registers                    ; N/A until Partition Merge                   ;
-; Total pins                         ; N/A until Partition Merge                   ;
-; Total virtual pins                 ; N/A until Partition Merge                   ;
-; Total memory bits                  ; N/A until Partition Merge                   ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
-; Total PLLs                         ; N/A until Partition Merge                   ;
-; UFM blocks                         ; N/A until Partition Merge                   ;
-; ADC blocks                         ; N/A until Partition Merge                   ;
+; Total logic elements               ; 0                                           ;
+;     Total combinational functions  ; 0                                           ;
+;     Dedicated logic registers      ; 0                                           ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 67                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
 +------------------------------------+---------------------------------------------+
 
 
@@ -159,13 +187,343 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
++---------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                              ;
++----------------------------------+-----------------+-----------------+------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path       ; Library ;
++----------------------------------+-----------------+-----------------+------------------------------------+---------+
+; ../src/mux2.vhd                  ; yes             ; User VHDL File  ; E:/riscvsingle/src/mux2.vhd        ;         ;
+; ../src/mux3.vhd                  ; yes             ; User VHDL File  ; E:/riscvsingle/src/mux3.vhd        ;         ;
+; ../src/flopr.vhd                 ; yes             ; User VHDL File  ; E:/riscvsingle/src/flopr.vhd       ;         ;
+; ../src/adder.vhd                 ; yes             ; User VHDL File  ; E:/riscvsingle/src/adder.vhd       ;         ;
+; ../src/som_1a.vhd                ; yes             ; User VHDL File  ; E:/riscvsingle/src/som_1a.vhd      ;         ;
+; ../src/alu.vhd                   ; yes             ; User VHDL File  ; E:/riscvsingle/src/alu.vhd         ;         ;
+; ../src/riscv_pkg.vhd             ; yes             ; User VHDL File  ; E:/riscvsingle/src/riscv_pkg.vhd   ;         ;
+; ../src/regfile.vhd               ; yes             ; User VHDL File  ; E:/riscvsingle/src/regfile.vhd     ;         ;
+; ../src/extend.vhd                ; yes             ; User VHDL File  ; E:/riscvsingle/src/extend.vhd      ;         ;
+; ../src/aludec.vhd                ; yes             ; User VHDL File  ; E:/riscvsingle/src/aludec.vhd      ;         ;
+; ../src/controller.vhd            ; yes             ; User VHDL File  ; E:/riscvsingle/src/controller.vhd  ;         ;
+; ../src/datapath.vhd              ; yes             ; User VHDL File  ; E:/riscvsingle/src/datapath.vhd    ;         ;
+; ../src/dmem.vhd                  ; yes             ; User VHDL File  ; E:/riscvsingle/src/dmem.vhd        ;         ;
+; ../src/imem.vhd                  ; yes             ; User VHDL File  ; E:/riscvsingle/src/imem.vhd        ;         ;
+; ../src/maindec.vhd               ; yes             ; User VHDL File  ; E:/riscvsingle/src/maindec.vhd     ;         ;
+; ../src/riscvsingle.vhd           ; yes             ; User VHDL File  ; E:/riscvsingle/src/riscvsingle.vhd ;         ;
+; ../src/testbench.vhd             ; yes             ; User VHDL File  ; E:/riscvsingle/src/testbench.vhd   ;         ;
+; ../src/top.vhd                   ; yes             ; User VHDL File  ; E:/riscvsingle/src/top.vhd         ;         ;
++----------------------------------+-----------------+-----------------+------------------------------------+---------+
+
+
++-------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                       ;
++---------------------------------------------+---------------------+
+; Resource                                    ; Usage               ;
++---------------------------------------------+---------------------+
+;                                             ;                     ;
+; Total combinational functions               ; 0                   ;
+; Logic element usage by number of LUT inputs ;                     ;
+;     -- 4 input functions                    ; 0                   ;
+;     -- 3 input functions                    ; 0                   ;
+;     -- <=2 input functions                  ; 0                   ;
+;                                             ;                     ;
+; Logic elements by mode                      ;                     ;
+;     -- normal mode                          ; 0                   ;
+;     -- arithmetic mode                      ; 0                   ;
+;                                             ;                     ;
+; Total registers                             ; 0                   ;
+;     -- Dedicated logic registers            ; 0                   ;
+;     -- I/O registers                        ; 0                   ;
+;                                             ;                     ;
+; I/O pins                                    ; 67                  ;
+;                                             ;                     ;
+; Embedded Multiplier 9-bit elements          ; 0                   ;
+;                                             ;                     ;
+; Maximum fan-out node                        ; WriteData[0]~output ;
+; Maximum fan-out                             ; 1                   ;
+; Total fan-out                               ; 67                  ;
+; Average fan-out                             ; 0.50                ;
++---------------------------------------------+---------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+; |top                       ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 67   ; 0            ; 0          ; |top                ; top         ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                  ;
++-------------------------------------------------------+---------------------------------------------+
+; Register name                                         ; Reason for Removal                          ;
++-------------------------------------------------------+---------------------------------------------+
+; riscvsingle:rvsingle|datapath:dp|flopr:pcreg|q[1]     ; Stuck at GND due to stuck port clock_enable ;
+; riscvsingle:rvsingle|datapath:dp|flopr:pcreg|q[2..31] ; Lost fanout                                 ;
+; Total Number of Removed Registers = 31                ;                                             ;
++-------------------------------------------------------+---------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                 ;
++---------------------------------------------------+--------------------+----------------------------------------------------+
+; Register name                                     ; Reason for Removal ; Registers Removed due to This Register             ;
++---------------------------------------------------+--------------------+----------------------------------------------------+
+; riscvsingle:rvsingle|datapath:dp|flopr:pcreg|q[6] ; Lost Fanouts       ; riscvsingle:rvsingle|datapath:dp|flopr:pcreg|q[2], ;
+;                                                   ;                    ; riscvsingle:rvsingle|datapath:dp|flopr:pcreg|q[3], ;
+;                                                   ;                    ; riscvsingle:rvsingle|datapath:dp|flopr:pcreg|q[4], ;
+;                                                   ;                    ; riscvsingle:rvsingle|datapath:dp|flopr:pcreg|q[5]  ;
++---------------------------------------------------+--------------------+----------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |top ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; Width          ; 32    ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: riscvsingle:rvsingle ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; Width          ; 32    ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: riscvsingle:rvsingle|controller:c ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; Width          ; 32    ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: riscvsingle:rvsingle|controller:c|maindec:md ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; Width          ; 32    ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: riscvsingle:rvsingle|datapath:dp ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; Width          ; 32    ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: riscvsingle:rvsingle|datapath:dp|flopr:pcreg ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; width          ; 32    ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: riscvsingle:rvsingle|datapath:dp|adder:pcadd4 ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; Width          ; 32    ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch ;
++----------------+-------+------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                   ;
++----------------+-------+------------------------------------------------------------------------+
+; Width          ; 32    ; Signed Integer                                                         ;
++----------------+-------+------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: riscvsingle:rvsingle|datapath:dp|mux2:pcmux ;
++----------------+-------+-----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                            ;
++----------------+-------+-----------------------------------------------------------------+
+; width          ; 32    ; Signed Integer                                                  ;
++----------------+-------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: riscvsingle:rvsingle|datapath:dp|regfile:rf ;
++----------------+-------+-----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                            ;
++----------------+-------+-----------------------------------------------------------------+
+; Width          ; 32    ; Signed Integer                                                  ;
++----------------+-------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: riscvsingle:rvsingle|datapath:dp|extend:ext ;
++----------------+-------+-----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                            ;
++----------------+-------+-----------------------------------------------------------------+
+; Width          ; 32    ; Signed Integer                                                  ;
++----------------+-------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: riscvsingle:rvsingle|datapath:dp|mux2:srcbmux ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; width          ; 32    ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: riscvsingle:rvsingle|datapath:dp|alu:mainalu ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; Width          ; 32    ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: riscvsingle:rvsingle|datapath:dp|mux3:resultmux ;
++----------------+-------+---------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                ;
++----------------+-------+---------------------------------------------------------------------+
+; width          ; 32    ; Signed Integer                                                      ;
++----------------+-------+---------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: imem:imem1 ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; Width          ; 32    ; Signed Integer                 ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: dmem:dmem1 ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; Width          ; 32    ; Signed Integer                 ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch"                                                                                          ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                                      ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; cin  ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; cout ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
++------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:1:inst" ;
++------+-------+----------+-----------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                               ;
++------+-------+----------+-----------------------------------------------------------------------+
+; ve   ; Input ; Info     ; Stuck at GND                                                          ;
++------+-------+----------+-----------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "riscvsingle:rvsingle|datapath:dp|adder:pcadd4"                                                                                                   ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                                                      ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; b[31..3] ; Input  ; Info     ; Stuck at GND                                                                                                                                 ;
+; b[1..0]  ; Input  ; Info     ; Stuck at GND                                                                                                                                 ;
+; b[2]     ; Input  ; Info     ; Stuck at VCC                                                                                                                                 ;
+; cin      ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; cout     ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "riscvsingle:rvsingle|controller:c"                                                  ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; jump ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 67                          ;
+; cycloneiii_lcell_comb ; 1                           ;
+;     normal            ; 1                           ;
+;         0 data inputs ; 1                           ;
+;                       ;                             ;
+; Max LUT depth         ; 0.00                        ;
+; Average LUT depth     ; 0.00                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Tue Jul 30 21:05:08 2024
+    Info: Processing started: Tue Jul 30 21:20:09 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off riscvsingle -c riscvsingle
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -272,14 +630,91 @@ Info (12128): Elaborating entity "alu" for hierarchy "riscvsingle:rvsingle|datap
 Info (12128): Elaborating entity "mux3" for hierarchy "riscvsingle:rvsingle|datapath:dp|mux3:resultmux" File: E:/riscvsingle/src/datapath.vhd Line: 80
 Info (12128): Elaborating entity "imem" for hierarchy "imem:imem1" File: E:/riscvsingle/src/top.vhd Line: 38
 Warning (10492): VHDL Process Statement warning at imem.vhd(44): signal "mem" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: E:/riscvsingle/src/imem.vhd Line: 44
-Error (10385): VHDL error at riscv_pkg.vhd(234): index value 0 is outside the range (31 downto 2) of object "input" File: E:/riscvsingle/src/riscv_pkg.vhd Line: 234
-Error (10658): VHDL Operator error at riscv_pkg.vhd(234): failed to evaluate call to operator ""="" File: E:/riscvsingle/src/riscv_pkg.vhd Line: 234
-Error (10657): VHDL Subprogram error at imem.vhd(44):  failed to elaborate call to subprogram "to_integer" File: E:/riscvsingle/src/imem.vhd Line: 44
-Error (12152): Can't elaborate user hierarchy "imem:imem1" File: E:/riscvsingle/src/top.vhd Line: 38
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 4 errors, 3 warnings
-    Error: Peak virtual memory: 4778 megabytes
-    Error: Processing ended: Tue Jul 30 21:05:16 2024
-    Error: Elapsed time: 00:00:08
-    Error: Total CPU time (on all processors): 00:00:20
+Info (12128): Elaborating entity "dmem" for hierarchy "dmem:dmem1" File: E:/riscvsingle/src/top.vhd Line: 39
+Info (276014): Found 3 instances of uninferred RAM logic
+    Info (276007): RAM logic "riscvsingle:rvsingle|datapath:dp|regfile:rf|mem" is uninferred due to asynchronous read logic File: E:/riscvsingle/src/regfile.vhd Line: 19
+    Info (276007): RAM logic "imem:imem1|mem" is uninferred due to asynchronous read logic File: E:/riscvsingle/src/imem.vhd Line: 40
+    Info (276007): RAM logic "dmem:dmem1|mem" is uninferred due to asynchronous read logic File: E:/riscvsingle/src/dmem.vhd Line: 20
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "WriteData[0]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[1]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[2]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[3]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[4]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[5]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[6]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[7]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[8]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[9]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[10]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[11]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[12]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[13]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[14]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[15]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[16]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[17]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[18]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[19]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[20]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[21]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[22]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[23]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[24]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[25]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[26]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[27]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[28]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[29]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[30]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "WriteData[31]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[0]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[1]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[2]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[3]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[4]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[5]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[6]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[7]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[8]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[9]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[10]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[11]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[12]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[13]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[14]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[15]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[16]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[17]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[18]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[19]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[20]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[21]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[22]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[23]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[24]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[25]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[26]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[27]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[28]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[29]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[30]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "DataAdr[31]" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 9
+    Warning (13410): Pin "MemWrite" is stuck at GND File: E:/riscvsingle/src/top.vhd Line: 10
+Info (17049): 30 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "clk" File: E:/riscvsingle/src/top.vhd Line: 8
+    Warning (15610): No output dependent on input pin "reset" File: E:/riscvsingle/src/top.vhd Line: 8
+Info (21057): Implemented 67 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 65 output pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 73 warnings
+    Info: Peak virtual memory: 4786 megabytes
+    Info: Processing ended: Tue Jul 30 21:20:17 2024
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:20
 
 

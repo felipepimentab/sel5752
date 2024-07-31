@@ -230,7 +230,7 @@ package body riscv_pkg is
 	function to_integer(input : bit_vector) return integer is 
 		variable output : integer := 0;
 	begin 
-		for i in 0 to input'length-1 loop
+		for i in 2 to input'length-1 loop
 			if input(i) = '1' then
 				output := output + 2**i;
 			end if;

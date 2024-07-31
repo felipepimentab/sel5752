@@ -1,4 +1,75 @@
-|riscvsingle
+|top
+clk => riscvsingle:rvsingle.clk
+clk => dmem:dmem1.clk
+reset => riscvsingle:rvsingle.reset
+WriteData[0] << riscvsingle:rvsingle.WriteData[0]
+WriteData[1] << riscvsingle:rvsingle.WriteData[1]
+WriteData[2] << riscvsingle:rvsingle.WriteData[2]
+WriteData[3] << riscvsingle:rvsingle.WriteData[3]
+WriteData[4] << riscvsingle:rvsingle.WriteData[4]
+WriteData[5] << riscvsingle:rvsingle.WriteData[5]
+WriteData[6] << riscvsingle:rvsingle.WriteData[6]
+WriteData[7] << riscvsingle:rvsingle.WriteData[7]
+WriteData[8] << riscvsingle:rvsingle.WriteData[8]
+WriteData[9] << riscvsingle:rvsingle.WriteData[9]
+WriteData[10] << riscvsingle:rvsingle.WriteData[10]
+WriteData[11] << riscvsingle:rvsingle.WriteData[11]
+WriteData[12] << riscvsingle:rvsingle.WriteData[12]
+WriteData[13] << riscvsingle:rvsingle.WriteData[13]
+WriteData[14] << riscvsingle:rvsingle.WriteData[14]
+WriteData[15] << riscvsingle:rvsingle.WriteData[15]
+WriteData[16] << riscvsingle:rvsingle.WriteData[16]
+WriteData[17] << riscvsingle:rvsingle.WriteData[17]
+WriteData[18] << riscvsingle:rvsingle.WriteData[18]
+WriteData[19] << riscvsingle:rvsingle.WriteData[19]
+WriteData[20] << riscvsingle:rvsingle.WriteData[20]
+WriteData[21] << riscvsingle:rvsingle.WriteData[21]
+WriteData[22] << riscvsingle:rvsingle.WriteData[22]
+WriteData[23] << riscvsingle:rvsingle.WriteData[23]
+WriteData[24] << riscvsingle:rvsingle.WriteData[24]
+WriteData[25] << riscvsingle:rvsingle.WriteData[25]
+WriteData[26] << riscvsingle:rvsingle.WriteData[26]
+WriteData[27] << riscvsingle:rvsingle.WriteData[27]
+WriteData[28] << riscvsingle:rvsingle.WriteData[28]
+WriteData[29] << riscvsingle:rvsingle.WriteData[29]
+WriteData[30] << riscvsingle:rvsingle.WriteData[30]
+WriteData[31] << riscvsingle:rvsingle.WriteData[31]
+DataAdr[0] << riscvsingle:rvsingle.ALUResult[0]
+DataAdr[1] << riscvsingle:rvsingle.ALUResult[1]
+DataAdr[2] << riscvsingle:rvsingle.ALUResult[2]
+DataAdr[3] << riscvsingle:rvsingle.ALUResult[3]
+DataAdr[4] << riscvsingle:rvsingle.ALUResult[4]
+DataAdr[5] << riscvsingle:rvsingle.ALUResult[5]
+DataAdr[6] << riscvsingle:rvsingle.ALUResult[6]
+DataAdr[7] << riscvsingle:rvsingle.ALUResult[7]
+DataAdr[8] << riscvsingle:rvsingle.ALUResult[8]
+DataAdr[9] << riscvsingle:rvsingle.ALUResult[9]
+DataAdr[10] << riscvsingle:rvsingle.ALUResult[10]
+DataAdr[11] << riscvsingle:rvsingle.ALUResult[11]
+DataAdr[12] << riscvsingle:rvsingle.ALUResult[12]
+DataAdr[13] << riscvsingle:rvsingle.ALUResult[13]
+DataAdr[14] << riscvsingle:rvsingle.ALUResult[14]
+DataAdr[15] << riscvsingle:rvsingle.ALUResult[15]
+DataAdr[16] << riscvsingle:rvsingle.ALUResult[16]
+DataAdr[17] << riscvsingle:rvsingle.ALUResult[17]
+DataAdr[18] << riscvsingle:rvsingle.ALUResult[18]
+DataAdr[19] << riscvsingle:rvsingle.ALUResult[19]
+DataAdr[20] << riscvsingle:rvsingle.ALUResult[20]
+DataAdr[21] << riscvsingle:rvsingle.ALUResult[21]
+DataAdr[22] << riscvsingle:rvsingle.ALUResult[22]
+DataAdr[23] << riscvsingle:rvsingle.ALUResult[23]
+DataAdr[24] << riscvsingle:rvsingle.ALUResult[24]
+DataAdr[25] << riscvsingle:rvsingle.ALUResult[25]
+DataAdr[26] << riscvsingle:rvsingle.ALUResult[26]
+DataAdr[27] << riscvsingle:rvsingle.ALUResult[27]
+DataAdr[28] << riscvsingle:rvsingle.ALUResult[28]
+DataAdr[29] << riscvsingle:rvsingle.ALUResult[29]
+DataAdr[30] << riscvsingle:rvsingle.ALUResult[30]
+DataAdr[31] << riscvsingle:rvsingle.ALUResult[31]
+MemWrite << riscvsingle:rvsingle.MemWrite
+
+
+|top|riscvsingle:rvsingle
 clk => datapath:dp.clk
 reset => datapath:dp.reset
 PC[0] <= datapath:dp.PC[0]
@@ -175,7 +246,7 @@ ReadData[30] => datapath:dp.ReadData[30]
 ReadData[31] => datapath:dp.ReadData[31]
 
 
-|riscvsingle|controller:c
+|top|riscvsingle:rvsingle|controller:c
 op[0] => maindec:md.op[0]
 op[1] => maindec:md.op[1]
 op[2] => maindec:md.op[2]
@@ -203,7 +274,7 @@ ALUControl[1] <= aludec:ad.ALUControl[1]
 ALUControl[2] <= aludec:ad.ALUControl[2]
 
 
-|riscvsingle|controller:c|maindec:md
+|top|riscvsingle:rvsingle|controller:c|maindec:md
 op[0] => Mux0.IN134
 op[0] => Mux1.IN134
 op[0] => Mux2.IN134
@@ -293,7 +364,7 @@ ALUOp[0] <= Mux9.DB_MAX_OUTPUT_PORT_TYPE
 ALUOp[1] <= Mux8.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|controller:c|aludec:ad
+|top|riscvsingle:rvsingle|controller:c|aludec:ad
 ALUOp[0] => Mux3.IN5
 ALUOp[0] => Mux4.IN5
 ALUOp[0] => Mux5.IN5
@@ -315,7 +386,7 @@ ALUControl[1] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
 ALUControl[2] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp
+|top|riscvsingle:rvsingle|datapath:dp
 clk => flopr:pcreg.clk
 clk => regfile:rf.clk
 reset => flopr:pcreg.reset
@@ -507,7 +578,7 @@ ReadData[30] => mux3:resultmux.d1[30]
 ReadData[31] => mux3:resultmux.d1[31]
 
 
-|riscvsingle|datapath:dp|flopr:pcreg
+|top|riscvsingle:rvsingle|datapath:dp|flopr:pcreg
 clk => q[0]~reg0.CLK
 clk => q[1]~reg0.CLK
 clk => q[2]~reg0.CLK
@@ -638,7 +709,7 @@ q[30] <= q[30]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 q[31] <= q[31]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4
 a[0] => ~NO_FANOUT~
 a[1] => som_1a:adders:1:inst.a
 a[2] => som_1a:adders:2:inst.a
@@ -739,7 +810,7 @@ y[31] <= som_1a:adders:31:inst.s
 cout <= som_1a:adders:31:inst.vs
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:1:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:1:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -753,7 +824,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:2:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:2:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -767,7 +838,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:3:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:3:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -781,7 +852,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:4:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:4:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -795,7 +866,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:5:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:5:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -809,7 +880,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:6:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:6:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -823,7 +894,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:7:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:7:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -837,7 +908,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:8:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:8:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -851,7 +922,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:9:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:9:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -865,7 +936,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:10:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:10:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -879,7 +950,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:11:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:11:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -893,7 +964,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:12:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:12:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -907,7 +978,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:13:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:13:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -921,7 +992,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:14:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:14:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -935,7 +1006,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:15:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:15:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -949,7 +1020,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:16:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:16:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -963,7 +1034,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:17:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:17:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -977,7 +1048,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:18:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:18:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -991,7 +1062,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:19:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:19:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1005,7 +1076,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:20:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:20:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1019,7 +1090,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:21:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:21:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1033,7 +1104,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:22:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:22:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1047,7 +1118,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:23:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:23:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1061,7 +1132,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:24:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:24:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1075,7 +1146,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:25:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:25:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1089,7 +1160,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:26:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:26:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1103,7 +1174,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:27:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:27:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1117,7 +1188,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:28:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:28:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1131,7 +1202,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:29:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:29:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1145,7 +1216,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:30:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:30:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1159,7 +1230,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:31:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcadd4|som_1a:\adders:31:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1173,7 +1244,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch
 a[0] => ~NO_FANOUT~
 a[1] => som_1a:adders:1:inst.a
 a[2] => som_1a:adders:2:inst.a
@@ -1274,7 +1345,7 @@ y[31] <= som_1a:adders:31:inst.s
 cout <= som_1a:adders:31:inst.vs
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:1:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:1:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1288,7 +1359,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:2:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:2:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1302,7 +1373,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:3:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:3:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1316,7 +1387,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:4:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:4:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1330,7 +1401,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:5:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:5:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1344,7 +1415,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:6:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:6:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1358,7 +1429,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:7:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:7:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1372,7 +1443,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:8:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:8:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1386,7 +1457,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:9:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:9:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1400,7 +1471,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:10:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:10:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1414,7 +1485,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:11:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:11:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1428,7 +1499,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:12:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:12:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1442,7 +1513,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:13:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:13:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1456,7 +1527,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:14:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:14:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1470,7 +1541,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:15:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:15:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1484,7 +1555,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:16:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:16:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1498,7 +1569,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:17:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:17:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1512,7 +1583,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:18:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:18:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1526,7 +1597,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:19:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:19:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1540,7 +1611,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:20:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:20:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1554,7 +1625,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:21:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:21:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1568,7 +1639,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:22:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:22:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1582,7 +1653,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:23:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:23:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1596,7 +1667,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:24:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:24:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1610,7 +1681,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:25:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:25:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1624,7 +1695,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:26:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:26:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1638,7 +1709,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:27:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:27:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1652,7 +1723,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:28:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:28:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1666,7 +1737,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:29:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:29:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1680,7 +1751,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:30:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:30:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1694,7 +1765,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:31:inst
+|top|riscvsingle:rvsingle|datapath:dp|adder:pcaddbranch|som_1a:\adders:31:inst
 a => s.IN0
 a => vs.IN0
 a => vs.IN0
@@ -1708,7 +1779,7 @@ s <= s.DB_MAX_OUTPUT_PORT_TYPE
 vs <= vs.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|mux2:pcmux
+|top|riscvsingle:rvsingle|datapath:dp|mux2:pcmux
 d0[0] => y[0].DATAB
 d0[1] => y[1].DATAB
 d0[2] => y[2].DATAB
@@ -1839,31 +1910,25 @@ y[30] <= y[30].DB_MAX_OUTPUT_PORT_TYPE
 y[31] <= y[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|regfile:rf
-A1[0] => Equal0.IN5
-A1[0] => mem.RADDR
-A1[1] => Equal0.IN4
-A1[1] => mem.RADDR1
+|top|riscvsingle:rvsingle|datapath:dp|regfile:rf
+A1[0] => ~NO_FANOUT~
+A1[1] => ~NO_FANOUT~
 A1[2] => Equal0.IN3
 A1[2] => mem.RADDR2
 A1[3] => Equal0.IN2
 A1[3] => mem.RADDR3
 A1[4] => Equal0.IN1
 A1[4] => mem.RADDR4
-A2[0] => Equal1.IN5
-A2[0] => mem.PORTBRADDR
-A2[1] => Equal1.IN4
-A2[1] => mem.PORTBRADDR1
+A2[0] => ~NO_FANOUT~
+A2[1] => ~NO_FANOUT~
 A2[2] => Equal1.IN3
 A2[2] => mem.PORTBRADDR2
 A2[3] => Equal1.IN2
 A2[3] => mem.PORTBRADDR3
 A2[4] => Equal1.IN1
 A2[4] => mem.PORTBRADDR4
-A3[0] => mem~4.DATAIN
-A3[0] => mem.WADDR
-A3[1] => mem~3.DATAIN
-A3[1] => mem.WADDR1
+A3[0] => ~NO_FANOUT~
+A3[1] => ~NO_FANOUT~
 A3[2] => mem~2.DATAIN
 A3[2] => mem.WADDR2
 A3[3] => mem~1.DATAIN
@@ -2041,7 +2106,7 @@ RD2[30] <= RD2.DB_MAX_OUTPUT_PORT_TYPE
 RD2[31] <= RD2.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|extend:ext
+|top|riscvsingle:rvsingle|datapath:dp|extend:ext
 instr[7] => Mux8.IN3
 instr[7] => Mux13.IN3
 instr[8] => Mux12.IN2
@@ -2176,7 +2241,7 @@ immext[30] <= instr[31].DB_MAX_OUTPUT_PORT_TYPE
 immext[31] <= instr[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|mux2:srcbmux
+|top|riscvsingle:rvsingle|datapath:dp|mux2:srcbmux
 d0[0] => y[0].DATAB
 d0[1] => y[1].DATAB
 d0[2] => y[2].DATAB
@@ -2307,7 +2372,7 @@ y[30] <= y[30].DB_MAX_OUTPUT_PORT_TYPE
 y[31] <= y[31].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|alu:mainalu
+|top|riscvsingle:rvsingle|datapath:dp|alu:mainalu
 A[0] => v.IN0
 A[0] => r.IN0
 A[0] => ALUResult.IN0
@@ -2849,7 +2914,7 @@ ALUResult[31] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
 Zero <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|riscvsingle|datapath:dp|mux3:resultmux
+|top|riscvsingle:rvsingle|datapath:dp|mux3:resultmux
 d0[0] => Mux31.IN0
 d0[1] => Mux30.IN0
 d0[2] => Mux29.IN0
@@ -3074,5 +3139,253 @@ y[28] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
 y[29] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
 y[30] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
 y[31] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|imem:imem1
+a[0] => ~NO_FANOUT~
+a[1] => ~NO_FANOUT~
+a[2] => mem.RADDR2
+a[3] => mem.RADDR3
+a[4] => mem.RADDR4
+a[5] => mem.RADDR5
+a[6] => ~NO_FANOUT~
+a[7] => ~NO_FANOUT~
+a[8] => ~NO_FANOUT~
+a[9] => ~NO_FANOUT~
+a[10] => ~NO_FANOUT~
+a[11] => ~NO_FANOUT~
+a[12] => ~NO_FANOUT~
+a[13] => ~NO_FANOUT~
+a[14] => ~NO_FANOUT~
+a[15] => ~NO_FANOUT~
+a[16] => ~NO_FANOUT~
+a[17] => ~NO_FANOUT~
+a[18] => ~NO_FANOUT~
+a[19] => ~NO_FANOUT~
+a[20] => ~NO_FANOUT~
+a[21] => ~NO_FANOUT~
+a[22] => ~NO_FANOUT~
+a[23] => ~NO_FANOUT~
+a[24] => ~NO_FANOUT~
+a[25] => ~NO_FANOUT~
+a[26] => ~NO_FANOUT~
+a[27] => ~NO_FANOUT~
+a[28] => ~NO_FANOUT~
+a[29] => ~NO_FANOUT~
+a[30] => ~NO_FANOUT~
+a[31] => ~NO_FANOUT~
+rd[0] <= mem.DATAOUT
+rd[1] <= mem.DATAOUT1
+rd[2] <= mem.DATAOUT2
+rd[3] <= mem.DATAOUT3
+rd[4] <= mem.DATAOUT4
+rd[5] <= mem.DATAOUT5
+rd[6] <= mem.DATAOUT6
+rd[7] <= mem.DATAOUT7
+rd[8] <= mem.DATAOUT8
+rd[9] <= mem.DATAOUT9
+rd[10] <= mem.DATAOUT10
+rd[11] <= mem.DATAOUT11
+rd[12] <= mem.DATAOUT12
+rd[13] <= mem.DATAOUT13
+rd[14] <= mem.DATAOUT14
+rd[15] <= mem.DATAOUT15
+rd[16] <= mem.DATAOUT16
+rd[17] <= mem.DATAOUT17
+rd[18] <= mem.DATAOUT18
+rd[19] <= mem.DATAOUT19
+rd[20] <= mem.DATAOUT20
+rd[21] <= mem.DATAOUT21
+rd[22] <= mem.DATAOUT22
+rd[23] <= mem.DATAOUT23
+rd[24] <= mem.DATAOUT24
+rd[25] <= mem.DATAOUT25
+rd[26] <= mem.DATAOUT26
+rd[27] <= mem.DATAOUT27
+rd[28] <= mem.DATAOUT28
+rd[29] <= mem.DATAOUT29
+rd[30] <= mem.DATAOUT30
+rd[31] <= mem.DATAOUT31
+
+
+|top|dmem:dmem1
+clk => mem~38.CLK
+clk => mem~0.CLK
+clk => mem~1.CLK
+clk => mem~2.CLK
+clk => mem~3.CLK
+clk => mem~4.CLK
+clk => mem~5.CLK
+clk => mem~6.CLK
+clk => mem~7.CLK
+clk => mem~8.CLK
+clk => mem~9.CLK
+clk => mem~10.CLK
+clk => mem~11.CLK
+clk => mem~12.CLK
+clk => mem~13.CLK
+clk => mem~14.CLK
+clk => mem~15.CLK
+clk => mem~16.CLK
+clk => mem~17.CLK
+clk => mem~18.CLK
+clk => mem~19.CLK
+clk => mem~20.CLK
+clk => mem~21.CLK
+clk => mem~22.CLK
+clk => mem~23.CLK
+clk => mem~24.CLK
+clk => mem~25.CLK
+clk => mem~26.CLK
+clk => mem~27.CLK
+clk => mem~28.CLK
+clk => mem~29.CLK
+clk => mem~30.CLK
+clk => mem~31.CLK
+clk => mem~32.CLK
+clk => mem~33.CLK
+clk => mem~34.CLK
+clk => mem~35.CLK
+clk => mem~36.CLK
+clk => mem~37.CLK
+clk => mem.CLK0
+we => mem~38.DATAIN
+we => mem.WE
+a[0] => ~NO_FANOUT~
+a[1] => ~NO_FANOUT~
+a[2] => mem~3.DATAIN
+a[2] => mem.WADDR2
+a[2] => mem.RADDR2
+a[3] => mem~2.DATAIN
+a[3] => mem.WADDR3
+a[3] => mem.RADDR3
+a[4] => mem~1.DATAIN
+a[4] => mem.WADDR4
+a[4] => mem.RADDR4
+a[5] => mem~0.DATAIN
+a[5] => mem.WADDR5
+a[5] => mem.RADDR5
+a[6] => ~NO_FANOUT~
+a[7] => ~NO_FANOUT~
+a[8] => ~NO_FANOUT~
+a[9] => ~NO_FANOUT~
+a[10] => ~NO_FANOUT~
+a[11] => ~NO_FANOUT~
+a[12] => ~NO_FANOUT~
+a[13] => ~NO_FANOUT~
+a[14] => ~NO_FANOUT~
+a[15] => ~NO_FANOUT~
+a[16] => ~NO_FANOUT~
+a[17] => ~NO_FANOUT~
+a[18] => ~NO_FANOUT~
+a[19] => ~NO_FANOUT~
+a[20] => ~NO_FANOUT~
+a[21] => ~NO_FANOUT~
+a[22] => ~NO_FANOUT~
+a[23] => ~NO_FANOUT~
+a[24] => ~NO_FANOUT~
+a[25] => ~NO_FANOUT~
+a[26] => ~NO_FANOUT~
+a[27] => ~NO_FANOUT~
+a[28] => ~NO_FANOUT~
+a[29] => ~NO_FANOUT~
+a[30] => ~NO_FANOUT~
+a[31] => ~NO_FANOUT~
+wd[0] => mem~37.DATAIN
+wd[0] => mem.DATAIN
+wd[1] => mem~36.DATAIN
+wd[1] => mem.DATAIN1
+wd[2] => mem~35.DATAIN
+wd[2] => mem.DATAIN2
+wd[3] => mem~34.DATAIN
+wd[3] => mem.DATAIN3
+wd[4] => mem~33.DATAIN
+wd[4] => mem.DATAIN4
+wd[5] => mem~32.DATAIN
+wd[5] => mem.DATAIN5
+wd[6] => mem~31.DATAIN
+wd[6] => mem.DATAIN6
+wd[7] => mem~30.DATAIN
+wd[7] => mem.DATAIN7
+wd[8] => mem~29.DATAIN
+wd[8] => mem.DATAIN8
+wd[9] => mem~28.DATAIN
+wd[9] => mem.DATAIN9
+wd[10] => mem~27.DATAIN
+wd[10] => mem.DATAIN10
+wd[11] => mem~26.DATAIN
+wd[11] => mem.DATAIN11
+wd[12] => mem~25.DATAIN
+wd[12] => mem.DATAIN12
+wd[13] => mem~24.DATAIN
+wd[13] => mem.DATAIN13
+wd[14] => mem~23.DATAIN
+wd[14] => mem.DATAIN14
+wd[15] => mem~22.DATAIN
+wd[15] => mem.DATAIN15
+wd[16] => mem~21.DATAIN
+wd[16] => mem.DATAIN16
+wd[17] => mem~20.DATAIN
+wd[17] => mem.DATAIN17
+wd[18] => mem~19.DATAIN
+wd[18] => mem.DATAIN18
+wd[19] => mem~18.DATAIN
+wd[19] => mem.DATAIN19
+wd[20] => mem~17.DATAIN
+wd[20] => mem.DATAIN20
+wd[21] => mem~16.DATAIN
+wd[21] => mem.DATAIN21
+wd[22] => mem~15.DATAIN
+wd[22] => mem.DATAIN22
+wd[23] => mem~14.DATAIN
+wd[23] => mem.DATAIN23
+wd[24] => mem~13.DATAIN
+wd[24] => mem.DATAIN24
+wd[25] => mem~12.DATAIN
+wd[25] => mem.DATAIN25
+wd[26] => mem~11.DATAIN
+wd[26] => mem.DATAIN26
+wd[27] => mem~10.DATAIN
+wd[27] => mem.DATAIN27
+wd[28] => mem~9.DATAIN
+wd[28] => mem.DATAIN28
+wd[29] => mem~8.DATAIN
+wd[29] => mem.DATAIN29
+wd[30] => mem~7.DATAIN
+wd[30] => mem.DATAIN30
+wd[31] => mem~6.DATAIN
+wd[31] => mem.DATAIN31
+rd[0] <= mem.DATAOUT
+rd[1] <= mem.DATAOUT1
+rd[2] <= mem.DATAOUT2
+rd[3] <= mem.DATAOUT3
+rd[4] <= mem.DATAOUT4
+rd[5] <= mem.DATAOUT5
+rd[6] <= mem.DATAOUT6
+rd[7] <= mem.DATAOUT7
+rd[8] <= mem.DATAOUT8
+rd[9] <= mem.DATAOUT9
+rd[10] <= mem.DATAOUT10
+rd[11] <= mem.DATAOUT11
+rd[12] <= mem.DATAOUT12
+rd[13] <= mem.DATAOUT13
+rd[14] <= mem.DATAOUT14
+rd[15] <= mem.DATAOUT15
+rd[16] <= mem.DATAOUT16
+rd[17] <= mem.DATAOUT17
+rd[18] <= mem.DATAOUT18
+rd[19] <= mem.DATAOUT19
+rd[20] <= mem.DATAOUT20
+rd[21] <= mem.DATAOUT21
+rd[22] <= mem.DATAOUT22
+rd[23] <= mem.DATAOUT23
+rd[24] <= mem.DATAOUT24
+rd[25] <= mem.DATAOUT25
+rd[26] <= mem.DATAOUT26
+rd[27] <= mem.DATAOUT27
+rd[28] <= mem.DATAOUT28
+rd[29] <= mem.DATAOUT29
+rd[30] <= mem.DATAOUT30
+rd[31] <= mem.DATAOUT31
 
 
