@@ -46,6 +46,11 @@ package riscv_pkg is
 		);
 	end component flopr;
 	
+	component som_1a
+		port(a, b, ve : in bit;
+				  s, vs : out bit);
+	end component;
+	
 	component adder is
 		generic(
 			Width : natural := 32

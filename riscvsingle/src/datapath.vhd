@@ -26,7 +26,8 @@ architecture struct of datapath is
 	end component;
 	component adder
 		port(a, b: in BIT_VECTOR(Width-1 downto 0);
-				y: out BIT_VECTOR(Width-1 downto 0));
+				y: out BIT_VECTOR(Width-1 downto 0);
+				cin: in BIT := '0');
 	end component;
 	component mux2 generic(width: integer);
 		port(d0, d1: in BIT_VECTOR(width-1 downto 0);

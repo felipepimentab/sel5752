@@ -1,0 +1,233 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/riscvsingle/quartus/simulation/modelsim
+Eadder
+Z1 w1715714858
+!i122 6
+R0
+Z2 8E:/riscvsingle/src/adder.vhd
+Z3 FE:/riscvsingle/src/adder.vhd
+l0
+L8 1
+VBWg_<e8W4z?C4SN[QlQ;e3
+!s100 @7[G3m`9OG<5W]IWbGD780
+Z4 OV;C;2020.1;71
+33
+Z5 !s110 1722626179
+!i10b 1
+Z6 !s108 1722626179.000000
+Z7 !s90 -reportprogress|300|-work|work|E:/riscvsingle/src/adder.vhd|E:/riscvsingle/src/alu.vhd|E:/riscvsingle/src/aludec.vhd|E:/riscvsingle/src/controller.vhd|E:/riscvsingle/src/datapath.vhd|E:/riscvsingle/src/dmem.vhd|E:/riscvsingle/src/extend.vhd|E:/riscvsingle/src/flopr.vhd|E:/riscvsingle/src/imem.vhd|E:/riscvsingle/src/maindec.vhd|E:/riscvsingle/src/mux2.vhd|E:/riscvsingle/src/mux3.vhd|E:/riscvsingle/src/regfile.vhd|E:/riscvsingle/src/riscv_pkg.vhd|E:/riscvsingle/src/riscvsingle.vhd|E:/riscvsingle/src/som_1a.vhd|E:/riscvsingle/src/testbench.vhd|E:/riscvsingle/src/top.vhd|
+!s107 E:/riscvsingle/src/top.vhd|E:/riscvsingle/src/testbench.vhd|E:/riscvsingle/src/som_1a.vhd|E:/riscvsingle/src/riscvsingle.vhd|E:/riscvsingle/src/riscv_pkg.vhd|E:/riscvsingle/src/regfile.vhd|E:/riscvsingle/src/mux3.vhd|E:/riscvsingle/src/mux2.vhd|E:/riscvsingle/src/maindec.vhd|E:/riscvsingle/src/imem.vhd|E:/riscvsingle/src/flopr.vhd|E:/riscvsingle/src/extend.vhd|E:/riscvsingle/src/dmem.vhd|E:/riscvsingle/src/datapath.vhd|E:/riscvsingle/src/controller.vhd|E:/riscvsingle/src/aludec.vhd|E:/riscvsingle/src/alu.vhd|E:/riscvsingle/src/adder.vhd|
+!i113 1
+Z8 o-work work
+Z9 tExplicit 1 NoCoverage 1 CvgOpt 0
+Abehaviour
+DEx4 work 5 adder 0 22 BWg_<e8W4z?C4SN[QlQ;e3
+!i122 6
+l28
+Z10 L20 21
+VXQCNA;fMh63@o@:gCnVYU0
+Z11 !s100 =:J`N;@GVAY1h[KaNXJHk3
+R4
+33
+R5
+!i10b 1
+R6
+R7
+Z12 !s107 E:/riscvsingle/src/top.vhd|E:/riscvsingle/src/testbench.vhd|E:/riscvsingle/src/som_1a.vhd|E:/riscvsingle/src/riscvsingle.vhd|E:/riscvsingle/src/riscv_pkg.vhd|E:/riscvsingle/src/regfile.vhd|E:/riscvsingle/src/mux3.vhd|E:/riscvsingle/src/mux2.vhd|E:/riscvsingle/src/maindec.vhd|E:/riscvsingle/src/imem.vhd|E:/riscvsingle/src/flopr.vhd|E:/riscvsingle/src/extend.vhd|E:/riscvsingle/src/dmem.vhd|E:/riscvsingle/src/datapath.vhd|E:/riscvsingle/src/controller.vhd|E:/riscvsingle/src/aludec.vhd|E:/riscvsingle/src/alu.vhd|E:/riscvsingle/src/adder.vhd|
+!i113 1
+R8
+R9
+Ealu
+Z13 w1722615294
+!i122 6
+R0
+Z14 8E:/riscvsingle/src/alu.vhd
+Z15 FE:/riscvsingle/src/alu.vhd
+l0
+L1 1
+VA3?5Y76iYAgPhJS6Q1TU73
+!s100 Ih];edZ8Z6DeQbXUJFH8A2
+R4
+33
+R5
+!i10b 1
+R6
+R7
+R12
+!i113 1
+R8
+R9
+Abehaviour
+DEx4 work 3 alu 0 22 A3?5Y76iYAgPhJS6Q1TU73
+!i122 6
+l44
+Z16 L13 60
+VHih8J^eJR6i0d4:KSlaQc2
+Z17 !s100 g4NUe:0U<iJYJK?d^QCe31
+R4
+33
+R5
+!i10b 1
+R6
+R7
+R12
+!i113 1
+R8
+R9
+Eflopr
+Z18 w1715715056
+!i122 2
+R0
+Z19 8E:/riscvsingle/src/flopr.vhd
+Z20 FE:/riscvsingle/src/flopr.vhd
+l0
+L8 1
+V@AbCBmaMzk[bRf;@NJ2IB2
+!s100 j1K4gLdWCfSCdBh4[g^bj2
+R4
+33
+Z21 !s110 1722626002
+!i10b 1
+Z22 !s108 1722626002.000000
+Z23 !s90 -reportprogress|300|-2008|-work|work|E:/riscvsingle/src/flopr.vhd|
+Z24 !s107 E:/riscvsingle/src/flopr.vhd|
+!i113 1
+Z25 o-2008 -work work
+Z26 tExplicit 1 CvgOpt 0
+Abehaviour
+DEx4 work 5 flopr 0 22 @AbCBmaMzk[bRf;@NJ2IB2
+!i122 2
+l20
+L19 11
+VfH3b0BgEGAlKSIBi8hfXC2
+!s100 6KIn8BVSe]iPg]dz98Yi22
+R4
+33
+R21
+!i10b 1
+R22
+R23
+R24
+!i113 1
+R25
+R26
+Emux2
+Z27 w1722382318
+!i122 0
+R0
+Z28 8E:/riscvsingle/src/mux2.vhd
+Z29 FE:/riscvsingle/src/mux2.vhd
+l0
+L8 1
+Vi^z<;_EIb`69E`^a_Pd?Q3
+!s100 Z8L6Z;;:XXOL]AnT`ReZL1
+R4
+33
+R21
+!i10b 1
+R22
+Z30 !s90 -reportprogress|300|-2008|-work|work|E:/riscvsingle/src/mux2.vhd|
+Z31 !s107 E:/riscvsingle/src/mux2.vhd|
+!i113 1
+R25
+R26
+Abehavior
+DEx4 work 4 mux2 0 22 i^z<;_EIb`69E`^a_Pd?Q3
+!i122 0
+l20
+L19 5
+VVJZmGa8B=h[eiWm?kGABF2
+!s100 >jFcFaRYR0?VIR]gH]hDT0
+R4
+33
+R21
+!i10b 1
+R22
+R30
+R31
+!i113 1
+R25
+R26
+Emux3
+Z32 w1715715018
+!i122 1
+R0
+Z33 8E:/riscvsingle/src/mux3.vhd
+Z34 FE:/riscvsingle/src/mux3.vhd
+l0
+L8 1
+V6Y=FXO8K?VebCb<nFo5C13
+!s100 6Y<P]:=BoVTdQ[N9dQ5GE0
+R4
+33
+R21
+!i10b 1
+R22
+Z35 !s90 -reportprogress|300|-2008|-work|work|E:/riscvsingle/src/mux3.vhd|
+Z36 !s107 E:/riscvsingle/src/mux3.vhd|
+!i113 1
+R25
+R26
+Abehavior
+DEx4 work 4 mux3 0 22 6Y=FXO8K?VebCb<nFo5C13
+!i122 1
+l20
+L19 7
+V5VMFZ>?9^2eEWo9LWz7lF1
+!s100 NCKzE>C>1_>E]?lXGcAhz0
+R4
+33
+R21
+!i10b 1
+R22
+R35
+R36
+!i113 1
+R25
+R26
+Esom_1a
+Z37 w1715110744
+!i122 4
+R0
+Z38 8E:/riscvsingle/src/som_1a.vhd
+Z39 FE:/riscvsingle/src/som_1a.vhd
+l0
+L1 1
+VLNUdTSaLc;0_AA3UA1;RX2
+!s100 a3^P:;HV7nJH:>2S4JVZG1
+R4
+33
+R21
+!i10b 1
+R22
+Z40 !s90 -reportprogress|300|-2008|-work|work|E:/riscvsingle/src/som_1a.vhd|
+Z41 !s107 E:/riscvsingle/src/som_1a.vhd|
+!i113 1
+R25
+R26
+Asoma
+DEx4 work 6 som_1a 0 22 LNUdTSaLc;0_AA3UA1;RX2
+!i122 4
+l7
+L6 5
+Vn1a9>Y]W^@Ma`8mN]AQ_L2
+!s100 TInP0N?Wbb[TDkXXR]Qo<2
+R4
+33
+R21
+!i10b 1
+R22
+R40
+R41
+!i113 1
+R25
+R26

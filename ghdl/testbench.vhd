@@ -39,8 +39,8 @@ begin
 	-- check that 25 gets written to address 100 at end of program
 	process(clk) begin
 		if(clk'event and clk = '0' and MemWrite = '1') then
-			if( to_integer(DataAdr) = 90 and
-				to_integer(writedata) = 25) then
+			if( to_integer(DataAdr) = 100 and
+				to_integer(WriteData) = 25) then
 				report "NO ERRORS: Simulation succeeded" severity
 				failure;
 			elsif (to_integer(DataAdr) /= 96) then
@@ -48,4 +48,4 @@ begin
 			end if;
 		end if;
 	end process;
-end;
+end architecture test;

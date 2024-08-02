@@ -1,75 +1,483 @@
-# Reading pref.tcl
-# do riscvsingle_run_msim_gate_vhdl.do
-# if {[file exists gate_work]} {
-# 	vdel -lib gate_work -all
-# }
-# vlib gate_work
-# vmap work gate_work
-# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
-# vmap work gate_work 
-# Copying E:/quartus-prime-lite/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
-# Modifying modelsim.ini
-# 
-# vcom -93 -work work {riscvsingle.vho}
-# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 17:10:45 on May 27,2024
-# vcom -reportprogress 300 -93 -work work riscvsingle.vho 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package VITAL_Timing
-# -- Loading package VITAL_Primitives
-# -- Loading package fiftyfivenm_atom_pack
-# -- Loading package fiftyfivenm_components
-# -- Compiling entity hard_block
-# -- Compiling architecture structure of hard_block
-# -- Compiling entity alu
-# -- Compiling architecture structure of alu
-# End time: 17:10:45 on May 27,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# 
-vsim work.alu
-# vsim work.alu 
-# Start time: 17:10:50 on May 27,2024
+vsim -gui -l msim_transcript work.testbench
+# vsim -gui -l msim_transcript work.testbench 
+# Start time: 16:19:49 on Aug 02,2024
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading ieee.vital_timing(body)
-# Loading ieee.vital_primitives(body)
-# Loading fiftyfivenm.fiftyfivenm_atom_pack(body)
-# Loading fiftyfivenm.fiftyfivenm_components
-# Loading work.alu(structure)
-# Loading work.hard_block(structure)
-# Loading fiftyfivenm.fiftyfivenm_lcell_comb(vital_lcell_comb)
-# Loading fiftyfivenm.fiftyfivenm_io_obuf(behavior)
-# Loading fiftyfivenm.fiftyfivenm_io_ibuf(behavior)
-# Loading fiftyfivenm.fiftyfivenm_unvm(behavior)
-# Loading fiftyfivenm.fiftyfivenm_adcblock(behavior)
-# ** Warning: Design size of 28751 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
-# Expect performance to be adversely affected.
-add wave -position insertpoint  \
-sim:/alu/A
-add wave -position insertpoint  \
-sim:/alu/B
-add wave -position insertpoint  \
-sim:/alu/ALUControl
-add wave -position insertpoint  \
-sim:/alu/Result
-add wave -position insertpoint  \
-sim:/alu/Zero
-force -freeze sim:/alu/A 10101100101100110100110100100000 0
-force -freeze sim:/alu/B 00110001000100100001110000110100 0
+# Loading ieee.numeric_std(body)
+# Loading work.riscv_pkg(body)
+# Loading work.testbench(test)
+# Loading work.top(test)
+# Loading work.riscvsingle(struct)
+# Loading work.controller(struct)
+# Loading work.maindec(behave)
+# Loading work.aludec(behavior)
+# Loading work.datapath(struct)
+# Loading work.flopr(behaviour)
+# Loading work.adder(behaviour)
+# ** Fatal: (vsim-3817) Port "cin" of entity "adder" is not in the component being instantiated.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/dut/rvsingle/dp/pcadd4 File: E:/riscvsingle/src/adder.vhd Line: 14
+# FATAL ERROR while loading design
+# Error loading design
+# End time: 16:19:49 on Aug 02,2024, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 3
+# vcom -work work -2008 -explicit -stats=none E:/riscvsingle/src/riscv_pkg.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package riscv_pkg
+# -- Compiling package body riscv_pkg
+# -- Loading package riscv_pkg
+# 
+# 
+# vcom -work work -2008 -explicit -stats=none E:/riscvsingle/src/som_1a.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# -- Loading package STANDARD
+# -- Compiling entity som_1a
+# -- Compiling architecture soma of som_1a
+# 
+# 
+# vcom -work work -2008 -explicit -stats=none E:/riscvsingle/src/adder.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# -- Loading package STANDARD
+# -- Compiling entity adder
+# -- Compiling architecture behaviour of adder
+# 
+# 
+# vcom -work work -2008 -explicit -stats=none E:/riscvsingle/src/mux2.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# -- Loading package STANDARD
+# -- Compiling entity mux2
+# -- Compiling architecture behavior of mux2
+# 
+# 
+# vcom -work work -2008 -explicit -stats=none E:/riscvsingle/src/mux3.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# -- Loading package STANDARD
+# -- Compiling entity mux3
+# -- Compiling architecture behavior of mux3
+# 
+# 
+# vcom -work work -2008 -explicit -stats=none E:/riscvsingle/src/extend.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package riscv_pkg
+# -- Compiling entity extend
+# -- Compiling architecture behave of extend
+# 
+# 
+# vcom -work work -2008 -explicit -stats=none E:/riscvsingle/src/alu.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# -- Loading package STANDARD
+# -- Compiling entity alu
+# -- Compiling architecture behaviour of alu
+# 
+# 
+# vcom -work work -2008 -explicit -stats=none E:/riscvsingle/src/flopr.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# -- Loading package STANDARD
+# -- Compiling entity flopr
+# -- Compiling architecture behaviour of flopr
+# 
+# 
+# vcom -work work -2008 -explicit -stats=none E:/riscvsingle/src/regfile.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package riscv_pkg
+# -- Compiling entity regfile
+# -- Compiling architecture behavior of regfile
+# 
+# 
+# vcom -work work -2008 -explicit -stats=none E:/riscvsingle/src/datapath.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package riscv_pkg
+# -- Compiling entity datapath
+# -- Compiling architecture struct of datapath
+# 
+# 
+# vcom -work work -2008 -explicit -stats=none E:/riscvsingle/src/aludec.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package riscv_pkg
+# -- Compiling entity aludec
+# -- Compiling architecture behavior of aludec
+# 
+# 
+# vcom -work work -2008 -explicit -stats=none E:/riscvsingle/src/maindec.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package riscv_pkg
+# -- Compiling entity maindec
+# -- Compiling architecture behave of maindec
+# 
+# 
+# vcom -work work -2008 -explicit -stats=none E:/riscvsingle/src/controller.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package riscv_pkg
+# -- Compiling entity controller
+# -- Compiling architecture struct of controller
+# 
+# 
+# vcom -work work -2008 -explicit -stats=none E:/riscvsingle/src/riscvsingle.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package riscv_pkg
+# -- Compiling entity riscvsingle
+# -- Compiling architecture struct of riscvsingle
+# 
+# 
+# vcom -work work -2008 -explicit -stats=none E:/riscvsingle/src/dmem.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package NUMERIC_BIT
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package riscv_pkg
+# -- Compiling entity dmem
+# -- Compiling architecture behave of dmem
+# 
+# 
+# vcom -work work -2008 -explicit -stats=none E:/riscvsingle/src/imem.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package riscv_pkg
+# -- Loading package std_logic_textio
+# -- Compiling entity imem
+# -- Compiling architecture behave of imem
+# 
+# 
+# vcom -work work -2008 -explicit -stats=none E:/riscvsingle/src/top.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package riscv_pkg
+# -- Compiling entity top
+# -- Compiling architecture test of top
+# 
+# 
+# vcom -work work -2008 -explicit -stats=none E:/riscvsingle/src/testbench.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package riscv_pkg
+# -- Compiling entity testbench
+# -- Compiling architecture test of testbench
+# 
+# 
+# 18 compiles, 0 failed with no errors.
+# Compile of riscv_pkg.vhd was successful.
+# Compile of som_1a.vhd was successful.
+# Compile of adder.vhd was successful.
+# Compile of mux2.vhd was successful.
+# Compile of mux3.vhd was successful.
+# Compile of extend.vhd was successful.
+# Compile of alu.vhd was successful.
+# Compile of flopr.vhd was successful.
+# Compile of regfile.vhd was successful.
+# Compile of datapath.vhd was successful.
+# Compile of aludec.vhd was successful.
+# Compile of maindec.vhd was successful.
+# Compile of controller.vhd was successful.
+# Compile of riscvsingle.vhd was successful.
+# Compile of dmem.vhd was successful.
+# Compile of imem.vhd was successful.
+# Compile of top.vhd was successful.
+# Compile of testbench.vhd was successful.
+# 18 compiles, 0 failed with no errors.
+vsim -gui -l msim_transcript work.testbench(test)
+# vsim -gui -l msim_transcript work.testbench(test) 
+# Start time: 16:23:07 on Aug 02,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.riscv_pkg(body)
+# Loading work.testbench(test)
+# Loading work.top(test)
+# Loading work.riscvsingle(struct)
+# Loading work.controller(struct)
+# Loading work.maindec(behave)
+# Loading work.aludec(behavior)
+# Loading work.datapath(struct)
+# Loading work.flopr(behaviour)
+# Loading work.adder(behaviour)
+# ** Fatal: (vsim-3817) Port "cin" of entity "adder" is not in the component being instantiated.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/dut/rvsingle/dp/pcadd4 File: E:/riscvsingle/src/adder.vhd Line: 14
+# FATAL ERROR while loading design
+# Error loading design
+# End time: 16:23:07 on Aug 02,2024, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 7
+# Compile of riscv_pkg.vhd was successful.
+# Compile of som_1a.vhd was successful.
+# Compile of adder.vhd was successful.
+# Compile of mux2.vhd was successful.
+# Compile of mux3.vhd was successful.
+# Compile of extend.vhd was successful.
+# Compile of alu.vhd was successful.
+# Compile of flopr.vhd was successful.
+# Compile of regfile.vhd was successful.
+# Compile of datapath.vhd was successful.
+# Compile of aludec.vhd was successful.
+# Compile of maindec.vhd was successful.
+# Compile of controller.vhd was successful.
+# Compile of riscvsingle.vhd was successful.
+# Compile of dmem.vhd was successful.
+# Compile of imem.vhd was successful.
+# Compile of top.vhd was successful.
+# Compile of testbench.vhd was successful.
+# 18 compiles, 0 failed with no errors.
+vsim -gui -l msim_transcript work.testbench(test)
+# vsim -gui -l msim_transcript work.testbench(test) 
+# Start time: 16:50:38 on Aug 02,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.riscv_pkg(body)
+# Loading work.testbench(test)
+# Loading work.top(test)
+# Loading work.riscvsingle(struct)
+# Loading work.controller(struct)
+# Loading work.maindec(behave)
+# Loading work.aludec(behavior)
+# Loading work.datapath(struct)
+# Loading work.flopr(behaviour)
+# Loading work.adder(behaviour)
+# Loading work.som_1a(soma)
+# Loading work.mux2(behavior)
+# Loading work.regfile(behavior)
+# Loading work.extend(behave)
+# Loading work.alu(behaviour)
+# Loading work.mux3(behavior)
+# Loading ieee.std_logic_textio(body)
+# Loading work.imem(behave)
+# ** Warning: (vsim-7) Failed to open VHDL file "../src/riscvtest.txt" in rb mode.
+# No such file or directory. (errno = ENOENT)
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/dut/imem1 File: E:/riscvsingle/src/imem.vhd
+# ** Fatal: (vsim-7) Failed to open VHDL file "../src/riscvtest.txt" in rb mode.
+# No such file or directory. (errno = ENOENT)
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/dut/imem1 File: E:/riscvsingle/src/imem.vhd Line: 30
+# FATAL ERROR while loading design
+# Error loading design
+# End time: 16:50:38 on Aug 02,2024, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 4
+# Compile of riscv_pkg.vhd was successful.
+# Compile of som_1a.vhd was successful.
+# Compile of adder.vhd was successful.
+# Compile of mux2.vhd was successful.
+# Compile of mux3.vhd was successful.
+# Compile of extend.vhd was successful.
+# Compile of alu.vhd was successful.
+# Compile of flopr.vhd was successful.
+# Compile of regfile.vhd was successful.
+# Compile of datapath.vhd was successful.
+# Compile of aludec.vhd was successful.
+# Compile of maindec.vhd was successful.
+# Compile of controller.vhd was successful.
+# Compile of riscvsingle.vhd was successful.
+# Compile of dmem.vhd was successful.
+# Compile of imem.vhd was successful.
+# Compile of top.vhd was successful.
+# Compile of testbench.vhd was successful.
+# 18 compiles, 0 failed with no errors.
+vsim -gui -l msim_transcript work.testbench(test)
+# vsim -gui -l msim_transcript work.testbench(test) 
+# Start time: 16:53:33 on Aug 02,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.riscv_pkg(body)
+# Loading work.testbench(test)
+# Loading work.top(test)
+# Loading work.riscvsingle(struct)
+# Loading work.controller(struct)
+# Loading work.maindec(behave)
+# Loading work.aludec(behavior)
+# Loading work.datapath(struct)
+# Loading work.flopr(behaviour)
+# Loading work.adder(behaviour)
+# Loading work.som_1a(soma)
+# Loading work.mux2(behavior)
+# Loading work.regfile(behavior)
+# Loading work.extend(behave)
+# Loading work.alu(behaviour)
+# Loading work.mux3(behavior)
+# Loading ieee.std_logic_textio(body)
+# Loading work.imem(behave)
+# Loading ieee.numeric_bit(body)
+# Loading work.dmem(behave)
+# ** Warning: (vsim-8684) No drivers exist on out port /testbench/dut/rvsingle/dp/pcadd4/y(0), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /testbench/dut/rvsingle/dp/PCPlus4(0).
+# ** Warning: (vsim-8684) No drivers exist on out port /testbench/dut/rvsingle/dp/pcaddbranch/y(0), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /testbench/dut/rvsingle/dp/PCTarget(0).
+run -all
+# ** Fatal: (vsim-3734) Index value 64 is out of range 63 downto 0.
+#    Time: 160 ns  Iteration: 2  Process: /testbench/dut/imem1/line__43 File: E:/riscvsingle/src/imem.vhd
+# Fatal error in Process line__43 at E:/riscvsingle/src/imem.vhd line 44
+# 
+# HDL call sequence:
+# Stopped at E:/riscvsingle/src/testbench.vhd 36 Process line__32
+# 
+# Compile of riscv_pkg.vhd was successful.
+# Compile of som_1a.vhd was successful.
+# Compile of adder.vhd was successful.
+# Compile of mux2.vhd was successful.
+# Compile of mux3.vhd was successful.
+# Compile of extend.vhd was successful.
+# Compile of alu.vhd was successful.
+# Compile of flopr.vhd was successful.
+# Compile of regfile.vhd was successful.
+# Compile of datapath.vhd was successful.
+# Compile of aludec.vhd was successful.
+# Compile of maindec.vhd was successful.
+# Compile of controller.vhd was successful.
+# Compile of riscvsingle.vhd was successful.
+# Compile of dmem.vhd was successful.
+# Compile of imem.vhd was successful.
+# Compile of top.vhd was successful.
+# Compile of testbench.vhd was successful.
+# 18 compiles, 0 failed with no errors.
+vsim -gui -l msim_transcript work.testbench(test)
+# End time: 16:58:09 on Aug 02,2024, Elapsed time: 0:04:36
+# Errors: 1, Warnings: 5
+# vsim -gui -l msim_transcript work.testbench(test) 
+# Start time: 16:58:09 on Aug 02,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.riscv_pkg(body)
+# Loading work.testbench(test)
+# Loading work.top(test)
+# Loading work.riscvsingle(struct)
+# Loading work.controller(struct)
+# Loading work.maindec(behave)
+# Loading work.aludec(behavior)
+# Loading work.datapath(struct)
+# Loading work.flopr(behaviour)
+# Loading work.adder(behaviour)
+# Loading work.som_1a(soma)
+# Loading work.mux2(behavior)
+# Loading work.regfile(behavior)
+# Loading work.extend(behave)
+# Loading work.alu(behaviour)
+# Loading work.mux3(behavior)
+# Loading ieee.std_logic_textio(body)
+# Loading work.imem(behave)
+# Loading ieee.numeric_bit(body)
+# Loading work.dmem(behave)
+# ** Warning: (vsim-8684) No drivers exist on out port /testbench/dut/rvsingle/dp/pcadd4/y(0), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /testbench/dut/rvsingle/dp/PCPlus4(0).
+# ** Warning: (vsim-8684) No drivers exist on out port /testbench/dut/rvsingle/dp/pcaddbranch/y(0), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /testbench/dut/rvsingle/dp/PCTarget(0).
 run
-force -freeze sim:/alu/ALUControl 001 0
-run
-force -freeze sim:/alu/ALUControl 010 0
-run
-force -freeze sim:/alu/ALUControl 011 0
-run
-force -freeze sim:/alu/ALUControl 101 0
-run
-force -freeze sim:/alu/A 00110001000100100001110000110100 0
-force -freeze sim:/alu/B 10101100101100110100110100100000 0
-run
-# End time: 17:29:31 on May 27,2024, Elapsed time: 0:18:41
-# Errors: 0, Warnings: 1
+run -all
+# ** Fatal: (vsim-3734) Index value 64 is out of range 63 downto 0.
+#    Time: 160 ns  Iteration: 2  Process: /testbench/dut/imem1/line__44 File: E:/riscvsingle/src/imem.vhd
+# Fatal error in Process line__44 at E:/riscvsingle/src/imem.vhd line 45
+# 
+# HDL call sequence:
+# Stopped at E:/riscvsingle/src/imem.vhd 45 Process line__44
+# 
+# Compile of riscv_pkg.vhd was successful.
+# Compile of som_1a.vhd was successful.
+# Compile of adder.vhd was successful.
+# Compile of mux2.vhd was successful.
+# Compile of mux3.vhd was successful.
+# Compile of extend.vhd was successful.
+# Compile of alu.vhd was successful.
+# Compile of flopr.vhd was successful.
+# Compile of regfile.vhd was successful.
+# Compile of datapath.vhd was successful.
+# Compile of aludec.vhd was successful.
+# Compile of maindec.vhd was successful.
+# Compile of controller.vhd was successful.
+# Compile of riscvsingle.vhd was successful.
+# Compile of dmem.vhd was successful.
+# Compile of imem.vhd was successful.
+# Compile of top.vhd was successful.
+# Compile of testbench.vhd was successful.
+# 18 compiles, 0 failed with no errors.
+vsim -gui -l msim_transcript work.testbench(test)
+# End time: 17:24:22 on Aug 02,2024, Elapsed time: 0:26:13
+# Errors: 1, Warnings: 4
+# vsim -gui -l msim_transcript work.testbench(test) 
+# Start time: 17:24:22 on Aug 02,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.riscv_pkg(body)
+# Loading work.testbench(test)
+# Loading work.top(test)
+# Loading work.riscvsingle(struct)
+# Loading work.controller(struct)
+# Loading work.maindec(behave)
+# Loading work.aludec(behavior)
+# Loading work.datapath(struct)
+# Loading work.flopr(behaviour)
+# Loading work.adder(behaviour)
+# Loading work.som_1a(soma)
+# Loading work.mux2(behavior)
+# Loading work.regfile(behavior)
+# Loading work.extend(behave)
+# Loading work.alu(behaviour)
+# Loading work.mux3(behavior)
+# Loading ieee.std_logic_textio(body)
+# Loading work.imem(behave)
+# Loading ieee.numeric_bit(body)
+# Loading work.dmem(behave)
+# ** Warning: (vsim-8684) No drivers exist on out port /testbench/dut/rvsingle/dp/pcadd4/y(0), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /testbench/dut/rvsingle/dp/PCPlus4(0).
+# ** Warning: (vsim-8684) No drivers exist on out port /testbench/dut/rvsingle/dp/pcaddbranch/y(0), and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /testbench/dut/rvsingle/dp/PCTarget(0).
+run -continue
+# ** Fatal: (vsim-3734) Index value -1 is out of range 63 downto 0.
+#    Time: 0 ps  Iteration: 0  Process: /testbench/dut/imem1/line__44 File: E:/riscvsingle/src/imem.vhd
+# Fatal error in Process line__44 at E:/riscvsingle/src/imem.vhd line 45
+# 
+# HDL call sequence:
+# Stopped at E:/riscvsingle/src/imem.vhd 45 Process line__44
+# 
+# End time: 18:06:01 on Aug 02,2024, Elapsed time: 0:41:39
+# Errors: 1, Warnings: 3
